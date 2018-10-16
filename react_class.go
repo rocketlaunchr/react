@@ -1,0 +1,116 @@
+package main
+
+import (
+	"github.com/gopherjs/gopherjs/js"
+)
+
+// Map is a convenience method that can be used to access fields in a
+// js object.
+type Map func(key string) *js.Object
+
+// UpdaterFunc is the first argument for SetState method.
+// See: https://reactjs.org/docs/react-component.html#setstate
+type UpdaterFunc func(props, state Map) interface{}
+
+// SetState is used to asynchronously update the state.
+// See: https://reactjs.org/docs/react-component.html#setstate
+type SetState func(updater interface{}, callback ...func())
+
+type ClassDef map[string]interface{}
+
+// NewClassDef will create an empty class definition which can immediately be used
+// to create a React component.
+func NewClassDef(displayName string) ClassDef {
+	def := ClassDef{
+		render: js.MakeFunc(func(this *js.Object, arguments []*js.Object) interface{} {
+			return nil
+		}),
+	}
+	def["displayName"] = displayName
+	return def
+}
+
+func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{}) {
+
+	const statics = "statics"
+
+	if f == nil {
+		// Clear method
+		if static {
+			if _, exists := def[statics]; exists {
+				switch s := def[statics].(type) {
+				case (map[string]interface{}):
+					delete(s, name)
+				default:
+
+				}
+			}
+		} else {
+			delete(def, name)
+		}
+		return
+	}
+
+	if !static && name == statics {
+		panic("can't have function name called 'statics'")
+	}
+
+	x := func(this *js.Object, arguments []*js.Object) interface{} {
+
+		props := func(key string) *js.Object {
+			return this.Get("props").Get(key)
+		}
+
+		state := func(key string) *js.Object {
+			return this.Get("state").Get(key)
+		}
+
+		setState := func(updater interface{}, callback ...func()) {
+
+			if updater == nil {
+				return
+			}
+
+			if len(callback) > 0 && callback[0] != nil {
+				switch updater := updater.(type) {
+				case func(props, state Map) interface{}:
+					this.Call("setState", SToMap(updater(props, state)), callback[0])
+				case UpdaterFunc:
+					this.Call("setState", SToMap(updater(props, state)), callback[0])
+				default:
+					this.Call("setState", SToMap(updater), callback[0])
+				}
+			} else {
+				switch updater := updater.(type) {
+				case func(props, state Map) interface{}:
+					this.Call("setState", SToMap(updater(props, state)))
+				case UpdaterFunc:
+					this.Call("setState", SToMap(updater(props, state)))
+				default:
+					this.Call("setState", SToMap(updater))
+				}
+			}
+		}
+
+		return f(this, props, state, setState, arguments)
+	}
+
+	if static {
+		def[statics] = map[string]interface{}{
+			name: js.MakeFunc(x),
+		}
+	} else {
+		def[name] = js.MakeFunc(x)
+	}
+}
+
+// SetMethod allows a custom method to be attached.
+// By passing nil for f, the method can also be detached (cleared).
+func (def ClassDef) SetMethod(name string, f func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{}) {
+	def.setMethod(false, name, f)
+}
+
+// ReactCreateClass is used to create a react component.
+func ReactCreateClass(def ClassDef) *js.Object {
+	return CreateReactClass.Call("createReactClass", def)
+}
