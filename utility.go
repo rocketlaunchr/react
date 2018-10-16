@@ -55,10 +55,10 @@ func AddClass(currentClasses, newClass string) string {
 }
 
 // RemoveClass removes a class from an existing list of classes.
-func RemoveClass(currentClasses, newClass string) string {
+func RemoveClass(currentClasses, removeClass string) string {
 
 	uniq := splitClasses(currentClasses)
-	delete(uniq, newClass)
+	delete(uniq, removeClass)
 
 	pre := []string{}
 	for k := range uniq {

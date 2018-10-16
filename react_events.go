@@ -8,6 +8,7 @@ import (
 // SyntheticEvent represents a SyntheticEvent.
 // See: https://reactjs.org/docs/events.html#overview
 type SyntheticEvent struct {
+	// O represents the original React SyntheticEvent.
 	O *js.Object
 }
 

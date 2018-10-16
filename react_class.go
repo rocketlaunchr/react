@@ -8,15 +8,13 @@ import (
 // js object.
 type Map func(key string) *js.Object
 
-// UpdaterFunc is the first argument for SetState method.
+// UpdaterFunc is the first argument for SetState function.
 // See: https://reactjs.org/docs/react-component.html#setstate
 type UpdaterFunc func(props, state Map) interface{}
 
 // SetState is used to asynchronously update the state.
 // See: https://reactjs.org/docs/react-component.html#setstate
 type SetState func(updater interface{}, callback ...func())
-
-type ClassDef map[string]interface{}
 
 // ForceUpdate will force a rerender of the component.
 // See: https://reactjs.org/docs/react-component.html#forceupdate
@@ -28,6 +26,9 @@ func ForceUpdate(this *js.Object, callback ...func()) {
 		this.Call("forceUpdate")
 	}
 }
+
+// ClassDef is used to create custom React components.
+type ClassDef map[string]interface{}
 
 // NewClassDef will create an empty class definition which can immediately be used
 // to create a React component.

@@ -29,7 +29,8 @@ func JSX(component interface{}, props interface{}, children ...interface{}) *js.
 	return React.Call("createElement", args...)
 }
 
-// JSFn is a convenience function used to call javascript functions.
+// JSFn is a convenience function used to call javascript functions that are
+// part of the standard library.
 func JSFn(name string, args ...interface{}) *js.Object {
 	return js.Global.Call(name, args...)
 }
