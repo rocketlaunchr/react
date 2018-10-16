@@ -8,11 +8,10 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
-// SToMap will convert a struct or pass-through a map
-// ToMap will return a map. If the argument is a struct,
-// it will convert it to a map. If the argument is a map,
-// it will pass it through. If the argument is nil, it will
-// return nil.
+// SToMap will convert a struct or pass-through a map.
+// If the argument is a struct, it will convert it to a map.
+// If the argument is a map, it will pass it through.
+// If the argument is nil, it will return nil.
 func SToMap(s interface{}) map[string]interface{} {
 
 	if s == nil {
@@ -41,7 +40,7 @@ func jsObjectIsNil(x interface{}) bool {
 }
 
 // jsObjectIsFunction returns true if x is a
-// js object and is a js function
+// js object and is a js function.
 func jsObjectIsFunction(x interface{}) (ret bool) {
 
 	v, ok := x.(*js.Object)
@@ -106,10 +105,10 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 		// Deal with dangerouslySetInnerHTML as a special case
 		if fieldName == "DangerouslySetInnerHTML" && strings.TrimSuffix(fieldTag, ",omitempty") == "dangerouslySetInnerHTML" {
 			if fn, ok := fieldVal.(func() interface{}); ok {
-				mp := EscapeHTMLFunc(fn)
+				mp := SetInnerHTMLFunc(fn)
 				out["dangerouslySetInnerHTML"] = mp["dangerouslySetInnerHTML"]
 			} else {
-				mp := EscapeHTML(fieldVal)
+				mp := SetInnerHTML(fieldVal)
 				out["dangerouslySetInnerHTML"] = mp["dangerouslySetInnerHTML"]
 			}
 			continue
@@ -137,7 +136,7 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 	return out
 }
 
-// isStruct returns if s is a struct or not.
+// isStruct returns true if s is a struct.
 func isStruct(s interface{}) bool {
 	v := reflect.ValueOf(s)
 	if v.Kind() == reflect.Ptr {
@@ -154,7 +153,7 @@ func isStruct(s interface{}) bool {
 
 // ConvertMap will hydrate a struct with values from a map.
 // strct must be a pointer to a map. Use struct tag "react" for linking
-// map keys to struct.
+// map keys to the struct's fields.
 func ConvertMap(mp interface{}, strct interface{}) error {
 
 	decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
@@ -169,11 +168,15 @@ func ConvertMap(mp interface{}, strct interface{}) error {
 	return decoder.Decode(mp)
 }
 
+// HydrateProps will hydrate a given struct with values from
+// the component's prop.
 func HydrateProps(this *js.Object, strct interface{}) error {
 	props := this.Get("props").Interface()
 	return ConvertMap(props, strct)
 }
 
+// HydrateState will hydrate a given struct with values from
+// the component's state.
 func HydrateState(this *js.Object, strct interface{}) error {
 	state := this.Get("state").Interface()
 	return ConvertMap(state, strct)

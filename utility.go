@@ -4,13 +4,13 @@ import (
 	"strings"
 )
 
-// Set is used for conveniently dealign with
+// Set is used for conveniently dealing with
 // data-* and aria-* attributes.
 // See: https://reactjs.org/docs/dom-elements.html
 type Set map[string]string
 
-// Convert converts a Set into a map containing the actual
-// attribute names by prefixing the base.
+// Convert is used to transform a set of suffix attributes
+// to the actual attributes by prefixing them with a base.
 func (s Set) Convert(base string) map[string]string {
 
 	out := map[string]string{}
@@ -22,9 +22,10 @@ func (s Set) Convert(base string) map[string]string {
 	return out
 }
 
-// EscapeHTMLFunc is used to create a prop that can escape and set
-// the inner html of an element.
-func EscapeHTMLFunc(inside func() interface{}) map[string]interface{} {
+// SetInnerHTMLFunc is a convience function used for setting the DOM object's
+// inner html. The functon takes a function for the argument.
+// See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+func SetInnerHTMLFunc(inside func() interface{}) map[string]interface{} {
 	return map[string]interface{}{
 		"dangerouslySetInnerHTML": map[string]interface{}{
 			"__html": inside(),
@@ -32,9 +33,11 @@ func EscapeHTMLFunc(inside func() interface{}) map[string]interface{} {
 	}
 }
 
-// EscapeHTML is a convience function.
-func EscapeHTML(inside interface{}) map[string]interface{} {
-	return EscapeHTMLFunc(func() interface{} { return inside })
+// SetInnerHTML is a convience function used for setting the DOM object's
+// inner html. The function takes the inner html content directly.
+// See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
+func SetInnerHTML(inside interface{}) map[string]interface{} {
+	return SetInnerHTMLFunc(func() interface{} { return inside })
 }
 
 // AddClass adds a new class to an existing list of classes.

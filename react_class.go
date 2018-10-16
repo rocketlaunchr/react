@@ -18,6 +18,17 @@ type SetState func(updater interface{}, callback ...func())
 
 type ClassDef map[string]interface{}
 
+// ForceUpdate will force a rerender of the component.
+// See: https://reactjs.org/docs/react-component.html#forceupdate
+func ForceUpdate(this *js.Object, callback ...func()) {
+
+	if len(callback) > 0 && callback[0] != nil {
+		this.Call("forceUpdate", callback[0])
+	} else {
+		this.Call("forceUpdate")
+	}
+}
+
 // NewClassDef will create an empty class definition which can immediately be used
 // to create a React component.
 func NewClassDef(displayName string) ClassDef {

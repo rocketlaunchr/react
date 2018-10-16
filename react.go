@@ -16,17 +16,6 @@ var (
 	CreateReactClass = js.Global
 )
 
-// ForceUpdate will force a rerender of the component.
-// See: https://reactjs.org/docs/react-component.html#forceupdate
-func ForceUpdate(this *js.Object, callback ...func()) {
-
-	if len(callback) > 0 && callback[0] != nil {
-		this.Call("forceUpdate", callback[0])
-	} else {
-		this.Call("forceUpdate")
-	}
-}
-
 // Render will render component to the specified target dom element.
 func Render(element *js.Object, domTarget dom.Element, callback ...func()) *js.Object {
 	if len(callback) > 0 && callback[0] != nil {
