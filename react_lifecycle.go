@@ -31,7 +31,7 @@ func (def ClassDef) SetGetDefaultProps(f func(this *js.Object) interface{}) {
 }
 
 // SetGetInitialState sets the getInitialState method.
-// Note: It is usually not recommended to use the props when setting the state.
+// Note: It is usually not recommended to use the props when setting the initial state.
 func (def ClassDef) SetGetInitialState(f func(this *js.Object, props Map) interface{}) {
 	def.SetMethod(getInitialState, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 		return SToMap(f(this, props))
