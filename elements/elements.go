@@ -7,7 +7,9 @@ import (
 )
 
 var (
-	TRUE  = true
+	// TRUE is used when a pointer to a bool is required.
+	TRUE = true
+	// FALSE is used when a pointer to a bool is required.
 	FALSE = false
 )
 
