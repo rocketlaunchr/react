@@ -1,4 +1,4 @@
-package main
+package react
 
 import (
 	"github.com/gopherjs/gopherjs/js"
