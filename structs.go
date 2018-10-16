@@ -18,6 +18,10 @@ func SToMap(s interface{}) map[string]interface{} {
 		return nil
 	}
 
+	if jsObjectIsNil(s) {
+		return nil
+	}
+
 	// Check if s is a struct
 	if isStruct(s) {
 		return convertStruct(s)
@@ -27,6 +31,10 @@ func SToMap(s interface{}) map[string]interface{} {
 	case map[string]interface{}:
 		return x
 	default:
+		s := reflect.ValueOf(x)
+		if s.IsNil() {
+			return nil
+		}
 		panic("unrecognized type")
 	}
 }
