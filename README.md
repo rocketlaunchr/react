@@ -8,7 +8,7 @@ This package is an extremely thin wrapper over the native react.js API. The obje
 The package is **production ready** but it should be noted that the `elements` sub-package is not stable yet. Once stability is reached, version `1.0.0` will be tagged.
 It is recommended your package manager locks to a commit id instead of the master branch directly.
 
-See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-24d987c6ec6e)
+See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4f01df9)
 
 ## Dependencies
 
@@ -41,7 +41,7 @@ go get -u github.com/rocketlaunchr/react
 ## Performance Tips
 
 * Use `-m` command line flag to instruct gopher.js to minify code. Then minify further with webpack.
-* Apply (gzip compression)[https://en.wikipedia.org/wiki/HTTP_compression]
+* Apply [gzip compression](https://en.wikipedia.org/wiki/HTTP_compression)
 * Use int instead of (u)int8/16/32/64
 * Use float64 instead of float32
 * Try to avoid importing `fmt` package (either directly or indirectly)
