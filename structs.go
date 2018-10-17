@@ -39,29 +39,21 @@ func SToMap(s interface{}) map[string]interface{} {
 	}
 }
 
+// jsObjectIsNotNil returns true if x is a js object
+// and is not null.
+func jsObjectIsNotNil(x interface{}) bool {
+	if v, ok := x.(*js.Object); !ok || v == nil {
+		return false
+	}
+
+	return true
+}
+
 // jsObjectIsNil return true if x is a js object and is null.
 func jsObjectIsNil(x interface{}) bool {
 	if v, ok := x.(*js.Object); ok && v == nil {
 		return true
 	}
-	return false
-}
-
-// jsObjectIsFunction returns true if x is a
-// js object and is a js function.
-func jsObjectIsFunction(x interface{}) (ret bool) {
-
-	v, ok := x.(*js.Object)
-	if !ok {
-		// Not a js object
-		return false
-	}
-
-	// Check if it's a function
-	if _, ok = v.Interface().(func(...interface{}) *js.Object); ok {
-		return true
-	}
-
 	return false
 }
 
@@ -90,7 +82,7 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 		fieldTag := f.Tag.Get("react")
 		fieldVal := s.Field(i).Interface()
 
-		if fieldTag == "-" || (!jsObjectIsFunction(fieldVal) && strings.HasSuffix(fieldTag, ",omitempty") && (fieldVal == nil || jsObjectIsNil(fieldVal) || reflect.DeepEqual(fieldVal, reflect.Zero(reflect.TypeOf(fieldVal)).Interface()))) {
+		if fieldTag == "-" || (!jsObjectIsNotNil(fieldVal) && strings.HasSuffix(fieldTag, ",omitempty") && (fieldVal == nil || jsObjectIsNil(fieldVal) || reflect.DeepEqual(fieldVal, reflect.Zero(reflect.TypeOf(fieldVal)).Interface()))) {
 			// Omit field
 			continue
 		}
@@ -113,17 +105,17 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 		// Deal with dangerouslySetInnerHTML as a special case
 		if fieldName == "DangerouslySetInnerHTML" && strings.TrimSuffix(fieldTag, ",omitempty") == "dangerouslySetInnerHTML" {
 			if fn, ok := fieldVal.(func() interface{}); ok {
-				mp := SetInnerHTMLFunc(fn)
+				mp := DangerouslySetInnerHTMLFunc(fn)
 				out["dangerouslySetInnerHTML"] = mp["dangerouslySetInnerHTML"]
 			} else {
-				mp := SetInnerHTML(fieldVal)
+				mp := DangerouslySetInnerHTML(fieldVal)
 				out["dangerouslySetInnerHTML"] = mp["dangerouslySetInnerHTML"]
 			}
 			continue
 		}
 
 		if fieldTag == "" {
-			if jsObjectIsFunction(fieldVal) {
+			if jsObjectIsNotNil(fieldVal) {
 				out[fieldName] = fieldVal
 			} else if isStruct(fieldVal) {
 				out[fieldName] = convertStruct(fieldVal)
@@ -131,7 +123,7 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 				out[fieldName] = fieldVal
 			}
 		} else {
-			if jsObjectIsFunction(fieldVal) {
+			if jsObjectIsNotNil(fieldVal) {
 				out[strings.TrimSuffix(fieldTag, ",omitempty")] = fieldVal
 			} else if isStruct(fieldVal) {
 				out[strings.TrimSuffix(fieldTag, ",omitempty")] = convertStruct(fieldVal)

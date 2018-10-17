@@ -22,10 +22,10 @@ func (s Set) Convert(base string) map[string]string {
 	return out
 }
 
-// SetInnerHTMLFunc is a convience function used for setting the DOM object's
-// inner html. The functon takes a function for the argument.
+// DangerouslySetInnerHTMLFunc is a convience function used for setting the DOM
+// object's inner html. The functon takes a function for the argument.
 // See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
-func SetInnerHTMLFunc(inside func() interface{}) map[string]interface{} {
+func DangerouslySetInnerHTMLFunc(inside func() interface{}) map[string]interface{} {
 	return map[string]interface{}{
 		"dangerouslySetInnerHTML": map[string]interface{}{
 			"__html": inside(),
@@ -33,11 +33,11 @@ func SetInnerHTMLFunc(inside func() interface{}) map[string]interface{} {
 	}
 }
 
-// SetInnerHTML is a convience function used for setting the DOM object's
-// inner html. The function takes the inner html content directly.
+// DangerouslySetInnerHTML is a convience function used for setting the DOM
+// object's inner html. The function takes the inner html content directly.
 // See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
-func SetInnerHTML(inside interface{}) map[string]interface{} {
-	return SetInnerHTMLFunc(func() interface{} { return inside })
+func DangerouslySetInnerHTML(inside interface{}) map[string]interface{} {
+	return DangerouslySetInnerHTMLFunc(func() interface{} { return inside })
 }
 
 // AddClass adds a new class to an existing list of classes.

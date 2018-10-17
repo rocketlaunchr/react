@@ -21,6 +21,9 @@ const (
 
 	// Unmounting
 	componentWillUnmount = "componentWillUnmount"
+
+	// Error-handling
+	componentDidCatch = "componentDidCatch"
 )
 
 // SetGetDefaultProps sets the getDefaultProps method.
@@ -129,5 +132,15 @@ func (def ClassDef) SetComponentDidUpdate(f func(this *js.Object, prevProps, pro
 func (def ClassDef) SetRender(f func(this *js.Object, props, state Map) interface{}) {
 	def.SetMethod(render, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 		return f(this, props, state)
+	})
+}
+
+// SetComponentDidCatch sets the componentDidCatch method.
+func (def ClassDef) SetComponentDidCatch(f func(this *js.Object, err, info *js.Object, props, state Map, setState SetState)) {
+	def.SetMethod(componentDidCatch, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
+		err := arguments[0]
+		info := arguments[1]
+		f(this, err, info, props, state, setState)
+		return nil
 	})
 }

@@ -62,3 +62,34 @@ func ForwardRef(component interface{}) *js.Object {
 		}
 	})
 }
+
+// CreateContext is used when you want to pass data to a deeply
+// embedded child component without using props.
+// See: https://reactjs.org/docs/context.html#reactcreatecontext
+func CreateContext(defaultValue ...interface{}) (Provider *js.Object, Consumer *js.Object) {
+
+	var res *js.Object
+
+	if len(defaultValue) > 0 {
+		res = React.Call("createContext", defaultValue[0])
+	} else {
+		res = React.Call("createContext")
+	}
+
+	return res.Get("Provider"), res.Get("Consumer")
+}
+
+// CloneElement is used to clone and return a new React Element.
+// See: https://reactjs.org/docs/react-api.html#cloneelement
+func CloneElement(element interface{}, props interface{}, children ...interface{}) *js.Object {
+
+	args := []interface{}{
+		element,
+		SToMap(props),
+	}
+	if len(children) > 0 {
+		args = append(args, children...)
+	}
+
+	return React.Call("cloneElement", args...)
+}

@@ -31,7 +31,8 @@ func ForceUpdate(this *js.Object, callback ...func()) {
 type ClassDef map[string]interface{}
 
 // NewClassDef will create an empty class definition which can immediately be used
-// to create a React component.
+// to create a React component. displayName is the text that is shown in Chrome's
+// React Developer Tools.
 func NewClassDef(displayName string) ClassDef {
 	def := ClassDef{
 		render: js.MakeFunc(func(this *js.Object, arguments []*js.Object) interface{} {

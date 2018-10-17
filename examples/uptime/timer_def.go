@@ -12,7 +12,7 @@ import (
 var TimerComponent *js.Object
 
 type TimerProps struct {
-	// We will pass in the time that component was first instantiated.
+	// We will pass in the time when the component was first instantiated.
 	StartTime int64 `react:"start"`
 }
 
