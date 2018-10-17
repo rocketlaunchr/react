@@ -5,7 +5,7 @@ Facebook's React is one of the most dominant libraries for front-end development
 
 This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time. 
 
-The package is **production ready** but the API is not stable yet. Once stability is reached, version `1.0.0` will be tagged.
+The package is **production ready** but it should be noted that the `elements` sub-package is not stable yet. Once stability is reached, version `1.0.0` will be tagged.
 It is recommended your package manager locks to a commit id instead of the master branch directly.
 
 See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-24d987c6ec6e)
@@ -15,6 +15,12 @@ See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-24d987
 * [React 16.5.2](https://www.npmjs.com/package/react) (it will probably work with lower)
 * [Gopherjs](https://github.com/gopherjs/gopherjs)
 * [create-react-class](https://www.npmjs.com/package/create-react-class)
+
+## Installation
+
+```
+go get -u github.com/rocketlaunchr/react
+```
 
 ## Examples
 
