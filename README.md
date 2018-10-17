@@ -26,7 +26,7 @@ go get -u github.com/rocketlaunchr/react
 
 ### Uptime Timer
 
-* How to create a React Class components
+* How to create React class components
 * How to pass props from parent to child
 * How to use **HydrateProps()** and **HydrateState**
 * How to use **state()** and **setState()**
@@ -34,7 +34,7 @@ go get -u github.com/rocketlaunchr/react
 
 ### Event Handling
 
-* How to create functional components
+* How to create React functional components
 * How to handle events (and pass extra arguments)
 * How to create a Ref and interact with dom object directly
 
