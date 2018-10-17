@@ -3,6 +3,11 @@ Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.s
 
 Facebook's React is one of the most dominant libraries for front-end development around. Google's Go programming language is one of the most elegantly crafted languages for server development. Why not combine the two?
 
+This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time. 
+
+The package is **production ready** but the API is not stable yet. Once stability is reached, version `1.0.0` will be tagged.
+It is recommended your package manager locks to a commit id instead of the master branch directly.
+
 See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-24d987c6ec6e)
 
 ## Dependencies
