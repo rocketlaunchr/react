@@ -5,10 +5,10 @@ Facebook's React is one of the most dominant libraries for front-end development
 
 This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time. 
 
-The package is **production ready** but it should be noted that the `elements` sub-package is not stable yet. Once stability is reached, version `1.0.0` will be tagged.
+The package is **production ready** but it should be noted that the `elements` sub-package is not stable yet. Once stability is reached, version `1.0.0` will be tagged. The `elements` sub-package is optional but hightly convenient.
 It is recommended your package manager locks to a commit id instead of the master branch directly.
 
-See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4f01df9)
+See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4f01df9).
 
 ## Dependencies
 
@@ -24,6 +24,7 @@ go get -u github.com/rocketlaunchr/react
 
 ## Examples
 
+The examples can be [found here](https://github.com/rocketlaunchr/react/tree/master/examples):
 ### Uptime Timer
 
 * How to create React class components
@@ -40,7 +41,7 @@ go get -u github.com/rocketlaunchr/react
 
 ## Performance Tips
 
-* Use `-m` command line flag to instruct gopher.js to minify code. Then minify further with webpack.
+* Use `-m` command line flag to instruct gopher.js to minify code. [Then minify further with webpack](https://github.com/gopherjs/gopherjs/issues/136).
 * Apply [gzip compression](https://en.wikipedia.org/wiki/HTTP_compression)
 * Use int instead of (u)int8/16/32/64
 * Use float64 instead of float32
