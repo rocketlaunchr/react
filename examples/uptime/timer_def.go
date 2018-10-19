@@ -25,7 +25,7 @@ func init() {
 
 	timerDef := react.NewClassDef("timer")
 
-	timerDef.SetGetInitialState(func(this *js.Object, props react.Map) interface{} {
+	timerDef.GetInitialState(func(this *js.Object, props react.Map) interface{} {
 
 		// Using props in here is considered bad practice. It is only for example purposes.
 		var tProps TimerProps
@@ -36,7 +36,7 @@ func init() {
 		}
 	})
 
-	timerDef.SetComponentDidMount(func(this *js.Object, props, state react.Map, setState react.SetState) {
+	timerDef.ComponentDidMount(func(this *js.Object, props, state react.Map, setState react.SetState) {
 		// Create a js timer that continually calls this.tick()
 		this.Set("timer", react.JSFn("setInterval", this.Get("tick"), 1000))
 	})
@@ -61,7 +61,7 @@ func init() {
 		return nil
 	})
 
-	timerDef.SetRender(func(this *js.Object, props, state react.Map) interface{} {
+	timerDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
 		var tState TimerState
 		react.HydrateState(this, &tState)

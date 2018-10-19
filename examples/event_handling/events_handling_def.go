@@ -25,11 +25,11 @@ func init() {
 
 	eventsDef["slider"] = react.CreateRef()
 
-	eventsDef.SetGetInitialState(func(this *js.Object, props react.Map) interface{} {
+	eventsDef.GetInitialState(func(this *js.Object, props react.Map) interface{} {
 		return eventsState{Counter: &[]int{0}[0], SliderValue: 0}
 	})
 
-	eventsDef.SetComponentDidMount(func(this *js.Object, props, state react.Map, setState react.SetState) {
+	eventsDef.ComponentDidMount(func(this *js.Object, props, state react.Map, setState react.SetState) {
 
 		slider := this.Get("slider").Get("current")
 		val := slider.Get("value").Int()
@@ -66,7 +66,7 @@ func init() {
 		setState(eventsState{SliderValue: val})
 	})
 
-	eventsDef.SetRender(func(this *js.Object, props, state react.Map) interface{} {
+	eventsDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
 		inputProps := &elements.InputProps{
 			Type:     "range",

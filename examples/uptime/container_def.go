@@ -17,7 +17,7 @@ func init() {
 
 	containerDef := react.NewClassDef("container")
 
-	containerDef.SetRender(func(this *js.Object, props, state react.Map) interface{} {
+	containerDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 		title := props("title").String()
 
 		return react.Fragment(nil,

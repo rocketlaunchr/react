@@ -16,7 +16,7 @@ func init() {
 
 	titleDef := react.NewClassDef("title")
 
-	titleDef.SetRender(func(this *js.Object, props, state react.Map) interface{} {
+	titleDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
 		var tProps TitleProps
 		react.HydrateProps(this, &tProps)

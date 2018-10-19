@@ -29,7 +29,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 * How to create React class components
 * How to pass props from parent to child
-* How to use **HydrateProps()** and **HydrateState**
+* How to use **HydrateProps()** and **HydrateState()**
 * How to use **state()** and **setState()**
 * How to create strongly-typed structured props and states
 
