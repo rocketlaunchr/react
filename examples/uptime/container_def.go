@@ -27,5 +27,5 @@ func init() {
 
 	})
 
-	ContainerComponent = react.ReactCreateClass(containerDef)
+	ContainerComponent = react.CreateClass(containerDef)
 }

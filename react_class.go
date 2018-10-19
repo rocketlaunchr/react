@@ -125,7 +125,7 @@ func (def ClassDef) SetMethod(name string, f func(this *js.Object, props, state 
 	def.setMethod(false, name, f)
 }
 
-// ReactCreateClass is used to create a react component.
-func ReactCreateClass(def ClassDef) *js.Object {
+// CreateClass is used to create a react component.
+func CreateClass(def ClassDef) *js.Object {
 	return CreateReactClass.Call("createReactClass", def)
 }

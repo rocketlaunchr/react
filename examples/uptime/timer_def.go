@@ -71,5 +71,5 @@ func init() {
 		return elements.H3(&elements.H3Props{Style: &elements.Styles{TextAlign: "center"}}, text)
 	})
 
-	TimerComponent = react.ReactCreateClass(timerDef)
+	TimerComponent = react.CreateClass(timerDef)
 }

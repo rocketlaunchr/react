@@ -92,5 +92,5 @@ func init() {
 
 	})
 
-	EventsComponent = react.ReactCreateClass(eventsDef)
+	EventsComponent = react.CreateClass(eventsDef)
 }

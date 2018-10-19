@@ -26,5 +26,5 @@ func init() {
 		return elements.H1(&elements.H1Props{Style: &elements.Styles{TextAlign: "center"}}, title)
 	})
 
-	TitleComponent = react.ReactCreateClass(titleDef)
+	TitleComponent = react.CreateClass(titleDef)
 }
