@@ -153,10 +153,10 @@ func isStruct(s interface{}) bool {
 	return v.Kind() == reflect.Struct
 }
 
-// ConvertMap will hydrate a struct with values from a map.
+// HydrateStruct will hydrate a struct with values from a map.
 // strct must be a pointer to a map. Use struct tag "react" for linking
 // map keys to the struct's fields.
-func ConvertMap(mp interface{}, strct interface{}) error {
+func HydrateStruct(mp interface{}, strct interface{}) error {
 
 	decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
 		ZeroFields: true,
@@ -174,12 +174,12 @@ func ConvertMap(mp interface{}, strct interface{}) error {
 // the component's prop.
 func HydrateProps(this *js.Object, strct interface{}) error {
 	props := this.Get("props").Interface()
-	return ConvertMap(props, strct)
+	return HydrateStruct(props, strct)
 }
 
 // HydrateState will hydrate a given struct with values from
 // the component's state.
 func HydrateState(this *js.Object, strct interface{}) error {
 	state := this.Get("state").Interface()
-	return ConvertMap(state, strct)
+	return HydrateStruct(state, strct)
 }
