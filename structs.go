@@ -82,7 +82,8 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 
 		fieldName := typeOfT.Field(i).Name
 		fieldTag := f.Tag.Get("react")
-		fieldVal := s.Field(i).Interface()
+		fieldValRaw := s.Field(i)
+		fieldVal := fieldValRaw.Interface()
 
 		if fieldTag == "-" || (!jsObjectIsNotNil(fieldVal) && strings.HasSuffix(fieldTag, ",omitempty") && (fieldVal == nil || jsObjectIsNil(fieldVal) || reflect.DeepEqual(fieldVal, reflect.Zero(reflect.TypeOf(fieldVal)).Interface()))) {
 			// Omit field
@@ -112,6 +113,22 @@ func convertStruct(sIn interface{}) map[string]interface{} {
 			} else {
 				mp := DangerouslySetInnerHTML(fieldVal)
 				out["dangerouslySetInnerHTML"] = mp["dangerouslySetInnerHTML"]
+			}
+			continue
+		}
+
+		// Deal with slices as a special case
+		if fieldValRaw.Kind() == reflect.Slice {
+			slc := []interface{}{}
+			for i := 0; i < fieldValRaw.Len(); i++ {
+				e := fieldValRaw.Index(i)
+				slc = append(slc, convertStruct(e.Interface()))
+			}
+
+			if fieldTag == "" {
+				out[fieldName] = slc
+			} else {
+				out[strings.TrimSuffix(fieldTag, ",omitempty")] = slc
 			}
 			continue
 		}
