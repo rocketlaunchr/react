@@ -15,7 +15,7 @@ type ContainerProps struct {
 
 func init() {
 
-	containerDef := react.NewClassDef("container")
+	containerDef := react.NewClassDef("Container")
 
 	containerDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 		title := props("title").String()

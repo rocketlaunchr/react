@@ -23,7 +23,7 @@ type TimerState struct {
 
 func init() {
 
-	timerDef := react.NewClassDef("timer")
+	timerDef := react.NewClassDef("Timer")
 
 	timerDef.GetInitialState(func(this *js.Object, props react.Map) interface{} {
 

@@ -21,7 +21,7 @@ type eventsState struct {
 
 func init() {
 
-	eventsDef := react.NewClassDef("events")
+	eventsDef := react.NewClassDef("Events")
 
 	eventsDef["slider"] = react.CreateRef()
 

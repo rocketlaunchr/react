@@ -14,7 +14,7 @@ type TitleProps struct {
 
 func init() {
 
-	titleDef := react.NewClassDef("title")
+	titleDef := react.NewClassDef("Title")
 
 	titleDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
