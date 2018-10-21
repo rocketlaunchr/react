@@ -171,7 +171,7 @@ func isStruct(s interface{}) bool {
 }
 
 // HydrateStruct will hydrate a struct with values from a map.
-// strct must be a pointer to a map. Use struct tag "react" for linking
+// strct must be a pointer to a struct. Use struct tag "react" for linking
 // map keys to the struct's fields.
 func HydrateStruct(mp interface{}, strct interface{}) error {
 
@@ -188,14 +188,14 @@ func HydrateStruct(mp interface{}, strct interface{}) error {
 }
 
 // HydrateProps will hydrate a given struct with values from
-// the component's prop.
+// the component's prop. strct must be a pointer to a struct.
 func HydrateProps(this *js.Object, strct interface{}) error {
 	props := this.Get("props").Interface()
 	return HydrateStruct(props, strct)
 }
 
 // HydrateState will hydrate a given struct with values from
-// the component's state.
+// the component's state. strct must be a pointer to a struct.
 func HydrateState(this *js.Object, strct interface{}) error {
 	state := this.Get("state").Interface()
 	return HydrateStruct(state, strct)
