@@ -51,8 +51,8 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 ## Future Work
 
-* Remove dependency for [mapstructure](https://github.com/mitchellh/mapstructure) (Long term)
-* Fork [mapstructure](https://github.com/mitchellh/mapstructure) and remove dependecy for `fmt` and `net`
+* Remove dependency for [mapstructure](https://github.com/mitchellh/mapstructure) (long term)
+* Fork [mapstructure](https://github.com/mitchellh/mapstructure) and remove dependecy for `fmt` and `net` (short term)
 
 #
 
