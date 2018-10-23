@@ -49,6 +49,11 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 * Use **react.JSFn()** and use native javascript functions as much as possible.
 * https://github.com/gopherjs/gopherjs/wiki/JavaScript-Tips-and-Gotchas
 
+## Future Work
+
+* Remove dependency for [mapstructure](https://github.com/mitchellh/mapstructure) (Long term)
+* Fork [mapstructure](https://github.com/mitchellh/mapstructure) and remove dependecy for `fmt` and `net`
+
 #
 
 ### Legal Information
