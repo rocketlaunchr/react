@@ -158,7 +158,7 @@ func (def ClassDef) SetMultiArgEventHandler(name string, f func(this *js.Object,
 			if len(callback) > 0 && callback[0] != nil {
 				switch updater := updater.(type) {
 				case func(props, state Map) interface{}:
-					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
+					this.Call("setState", func(state *js.Object, props *js.Object) interface{} {
 						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
@@ -166,7 +166,7 @@ func (def ClassDef) SetMultiArgEventHandler(name string, f func(this *js.Object,
 						}))
 					}, callback[0])
 				case UpdaterFunc:
-					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
+					this.Call("setState", func(state *js.Object, props *js.Object) interface{} {
 						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
@@ -179,7 +179,7 @@ func (def ClassDef) SetMultiArgEventHandler(name string, f func(this *js.Object,
 			} else {
 				switch updater := updater.(type) {
 				case func(props, state Map) interface{}:
-					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
+					this.Call("setState", func(state *js.Object, props *js.Object) interface{} {
 						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
@@ -187,7 +187,7 @@ func (def ClassDef) SetMultiArgEventHandler(name string, f func(this *js.Object,
 						}))
 					})
 				case UpdaterFunc:
-					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
+					this.Call("setState", func(state *js.Object, props *js.Object) interface{} {
 						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
