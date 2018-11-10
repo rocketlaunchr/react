@@ -90,19 +90,19 @@ func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, 
 				switch updater := updater.(type) {
 				case func(props, state Map) interface{}:
 					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
-						return updater(func(key string) *js.Object {
+						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
 							return state.Get(key)
-						})
+						}))
 					}, callback[0])
 				case UpdaterFunc:
 					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
-						return updater(func(key string) *js.Object {
+						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
 							return state.Get(key)
-						})
+						}))
 					}, callback[0])
 				default:
 					this.Call("setState", SToMap(updater), callback[0])
@@ -111,19 +111,19 @@ func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, 
 				switch updater := updater.(type) {
 				case func(props, state Map) interface{}:
 					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
-						return updater(func(key string) *js.Object {
+						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
 							return state.Get(key)
-						})
+						}))
 					})
 				case UpdaterFunc:
 					this.Call("setState", func(props *js.Object, state *js.Object) interface{} {
-						return updater(func(key string) *js.Object {
+						return SToMap(updater(func(key string) *js.Object {
 							return props.Get(key)
 						}, func(key string) *js.Object {
 							return state.Get(key)
-						})
+						}))
 					})
 				default:
 					this.Call("setState", SToMap(updater))
