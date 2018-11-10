@@ -41,7 +41,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 ## Performance Tips
 
-* Use `-m` command line flag to instruct gopher.js to minify code. [Then minify further with webpack](https://github.com/gopherjs/gopherjs/issues/136). [Webpack tutorial](https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01)
+* Use `-m` command line flag to instruct gopher.js to minify code. Then minify further with [Webpack/UglifyJS](https://github.com/gopherjs/gopherjs/issues/136). A Webpack tutorial can be [found here](https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01)
 * Apply [gzip compression](https://en.wikipedia.org/wiki/HTTP_compression)
 * Use int instead of (u)int8/16/32/64
 * Use float64 instead of float32
@@ -51,8 +51,8 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 ## Future Work
 
-* Remove dependency for [mapstructure](https://github.com/mitchellh/mapstructure) (long term)
 * Fork [mapstructure](https://github.com/mitchellh/mapstructure) and remove dependecy for `fmt` and `net` (short term)
+* Remove dependency for [mapstructure](https://github.com/mitchellh/mapstructure) (long term)
 * WebAssembly version
 
 #
