@@ -48,6 +48,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 * Try to avoid importing `fmt` package (either directly or indirectly).
 * Use **react.JSFn()** and use native javascript functions as much as possible.
 * https://github.com/gopherjs/gopherjs/wiki/JavaScript-Tips-and-Gotchas
+* See if [jsgo](https://github.com/dave/jsgo) is appropriate for your web-based project.
 
 ## Future Work
 
