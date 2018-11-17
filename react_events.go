@@ -8,6 +8,7 @@ import (
 )
 
 // SyntheticEvent represents a SyntheticEvent.
+//
 // See: https://reactjs.org/docs/events.html#overview
 type SyntheticEvent struct {
 	// O represents the original React SyntheticEvent.
@@ -15,48 +16,56 @@ type SyntheticEvent struct {
 }
 
 // Bubbles
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Bubbles() bool {
 	return s.O.Get("bubbles").Bool()
 }
 
 // Cancelable
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Cancelable() bool {
 	return s.O.Get("cancelable").Bool()
 }
 
 // CurrentTarget
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) CurrentTarget() dom.HTMLElement {
 	return dom.WrapHTMLElement(s.O.Get("currentTarget"))
 }
 
 // DefaultPrevented
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) DefaultPrevented() bool {
 	return s.O.Get("defaultPrevented").Bool()
 }
 
 // EventPhase
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) EventPhase() int {
 	return s.O.Get("eventPhase").Int()
 }
 
 // IsTrusted
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) IsTrusted() bool {
 	return s.O.Get("isTrusted").Bool()
 }
 
 // NativeEvents
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) NativeEvent() dom.Event {
 	return dom.WrapEvent(s.O.Get("nativeEvent"))
 }
 
 // PreventDefault
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) PreventDefault() {
 	s.O.Call("preventDefault")
@@ -69,36 +78,42 @@ func (s *SyntheticEvent) IsDefaultPrevented() bool {
 }
 
 // StopPropagation
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) StopPropagation() {
 	s.O.Call("stopPropagation")
 }
 
 // IsPropagationStopped
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) IsPropagationStopped() bool {
 	return s.O.Call("isPropagationStopped").Bool()
 }
 
 // Target
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Target() dom.HTMLElement {
 	return dom.WrapHTMLElement(s.O.Get("target"))
 }
 
 // TimeStamp
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) TimeStamp() float64 {
 	return s.O.Get("timeStamp").Float()
 }
 
 // Type
+//
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Type() string {
 	return s.O.Get("type").String()
 }
 
 // Persist is used if you want to access properties in an asynchronous way.
+//
 // See: https://reactjs.org/docs/events.html#event-pooling
 func (s *SyntheticEvent) Persist() *SyntheticEvent {
 	p := s.O.Call("persist")

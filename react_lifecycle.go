@@ -44,6 +44,7 @@ func (def ClassDef) GetInitialState(f func(this *js.Object, props Map) interface
 }
 
 // GetDerivedStateFromProps sets the getDerivedStateFromProps class method.
+//
 // See: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 func (def ClassDef) GetDerivedStateFromProps(f func(nextProps, prevState Map) interface{}) {
 
@@ -61,6 +62,7 @@ func (def ClassDef) GetDerivedStateFromProps(f func(nextProps, prevState Map) in
 }
 
 // ComponentDidMount sets the componentDidMount method.
+//
 // See: https://reactjs.org/docs/react-component.html#componentdidmount
 func (def ClassDef) ComponentDidMount(f func(this *js.Object, props, state Map, setState SetState)) {
 	def.SetMethod(componentDidMount, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
@@ -70,6 +72,7 @@ func (def ClassDef) ComponentDidMount(f func(this *js.Object, props, state Map, 
 }
 
 // ComponentWillUnmount sets the componentWillUnmount method.
+//
 // See: https://reactjs.org/docs/react-component.html#componentwillunmount
 func (def ClassDef) ComponentWillUnmount(f func(this *js.Object, props, state Map)) {
 	def.SetMethod(componentWillUnmount, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
@@ -79,6 +82,7 @@ func (def ClassDef) ComponentWillUnmount(f func(this *js.Object, props, state Ma
 }
 
 // ShouldComponentUpdate sets the shouldComponentUpdate method.
+//
 // See: https://reactjs.org/docs/react-component.html#shouldcomponentupdate
 func (def ClassDef) ShouldComponentUpdate(f func(this *js.Object, props, nextProps, state, nextState Map) bool) {
 	def.SetMethod(shouldComponentUpdate, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
@@ -93,6 +97,7 @@ func (def ClassDef) ShouldComponentUpdate(f func(this *js.Object, props, nextPro
 }
 
 // GetSnapshotBeforeUpdate sets the getSnapshotBeforeUpdate method.
+//
 // See: https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
 func (def ClassDef) GetSnapshotBeforeUpdate(f func(this *js.Object, prevProps, props, prevState, state Map) interface{}) {
 	def.SetMethod(getSnapshotBeforeUpdate, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
@@ -115,6 +120,7 @@ func (def ClassDef) GetSnapshotBeforeUpdate(f func(this *js.Object, prevProps, p
 }
 
 // ComponentDidUpdate sets the componentDidUpdate method.
+//
 // See: https://reactjs.org/docs/react-component.html#componentdidupdate
 func (def ClassDef) ComponentDidUpdate(f func(this *js.Object, prevProps, props, prevState, state Map, setState SetState, snapshot *js.Object)) {
 	def.SetMethod(componentDidUpdate, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
@@ -131,6 +137,8 @@ func (def ClassDef) ComponentDidUpdate(f func(this *js.Object, prevProps, props,
 }
 
 // Render sets the render method.
+//
+// See: https://reactjs.org/docs/react-component.html#render
 func (def ClassDef) Render(f func(this *js.Object, props, state Map) interface{}) {
 	def.SetMethod(render, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 		return f(this, props, state)
@@ -138,6 +146,8 @@ func (def ClassDef) Render(f func(this *js.Object, props, state Map) interface{}
 }
 
 // ComponentDidCatch sets the componentDidCatch method.
+//
+// See: https://reactjs.org/docs/react-component.html#componentdidcatch
 func (def ClassDef) ComponentDidCatch(f func(this *js.Object, err, info *js.Object, props, state Map, setState SetState)) {
 	def.SetMethod(componentDidCatch, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 		err := arguments[0]

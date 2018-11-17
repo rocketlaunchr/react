@@ -8,6 +8,7 @@ import (
 
 // Set is used for conveniently dealing with
 // data-* and aria-* attributes.
+//
 // See: https://reactjs.org/docs/dom-elements.html
 type Set map[string]string
 
@@ -26,6 +27,7 @@ func (s Set) Convert(base string) map[string]string {
 
 // DangerouslySetInnerHTMLFunc is a convience function used for setting the DOM
 // object's inner html. The functon takes a function for the argument.
+//
 // See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
 func DangerouslySetInnerHTMLFunc(inside func() interface{}) map[string]interface{} {
 	return map[string]interface{}{
@@ -37,6 +39,7 @@ func DangerouslySetInnerHTMLFunc(inside func() interface{}) map[string]interface
 
 // DangerouslySetInnerHTML is a convience function used for setting the DOM
 // object's inner html. The function takes the inner html content directly.
+//
 // See: https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml
 func DangerouslySetInnerHTML(inside interface{}) map[string]interface{} {
 	return DangerouslySetInnerHTMLFunc(func() interface{} { return inside })

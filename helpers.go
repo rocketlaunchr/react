@@ -8,6 +8,7 @@ import (
 
 // Fragment is used to group a list of children
 // without adding extra nodes to the DOM.
+//
 // See: https://reactjs.org/docs/fragments.html
 func Fragment(key *string, children ...interface{}) *js.Object {
 	props := map[string]interface{}{}
@@ -38,12 +39,14 @@ func JSFn(name string, args ...interface{}) *js.Object {
 }
 
 // CreateRef will create a Ref.
+//
 // See: https://reactjs.org/docs/refs-and-the-dom.html
 func CreateRef() *js.Object {
 	return React.Call("createRef")
 }
 
 // ForwardRef will forward a Ref to child components.
+//
 // See: https://reactjs.org/docs/forwarding-refs.html
 func ForwardRef(component interface{}) *js.Object {
 	return React.Call("forwardRef", func(props *js.Object, ref *js.Object) *js.Object {
@@ -67,6 +70,7 @@ func ForwardRef(component interface{}) *js.Object {
 
 // CreateContext is used when you want to pass data to a deeply
 // embedded child component without using props.
+//
 // See: https://reactjs.org/docs/context.html#reactcreatecontext
 func CreateContext(defaultValue ...interface{}) (Provider *js.Object, Consumer *js.Object) {
 
@@ -82,6 +86,7 @@ func CreateContext(defaultValue ...interface{}) (Provider *js.Object, Consumer *
 }
 
 // CloneElement is used to clone and return a new React Element.
+//
 // See: https://reactjs.org/docs/react-api.html#cloneelement
 func CloneElement(element interface{}, props interface{}, children ...interface{}) *js.Object {
 
