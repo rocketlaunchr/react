@@ -34,8 +34,9 @@ func (s *SyntheticEvent) Cancelable() bool {
 //
 // Example:
 //
-// import "honnef.co/go/js/dom"
-// dom.WrapHTMLElement(e.CurrentTarget())
+//  import "honnef.co/go/js/dom"
+//
+//  dom.WrapHTMLElement(e.CurrentTarget())
 func (s *SyntheticEvent) CurrentTarget() *js.Object {
 	return s.O.Get("currentTarget")
 }
@@ -67,8 +68,9 @@ func (s *SyntheticEvent) IsTrusted() bool {
 //
 // Example:
 //
-// import "honnef.co/go/js/dom"
-// dom.WrapEvent(e.NativeEvent())
+//  import "honnef.co/go/js/dom"
+//
+//  dom.WrapEvent(e.NativeEvent())
 func (s *SyntheticEvent) NativeEvent() *js.Object {
 	return s.O.Get("nativeEvent")
 }
@@ -106,8 +108,9 @@ func (s *SyntheticEvent) IsPropagationStopped() bool {
 //
 // Example:
 //
-// import "honnef.co/go/js/dom"
-// dom.WrapHTMLElement(e.Target())
+//  import "honnef.co/go/js/dom"
+//
+//  dom.WrapHTMLElement(e.Target())
 func (s *SyntheticEvent) Target() *js.Object {
 	return s.O.Get("target")
 }
