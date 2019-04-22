@@ -12,12 +12,15 @@ var (
 	// if it is not in your global namespace.
 	//
 	// See: https://www.npmjs.com/package/react
+
 	React = js.Global.Get("React")
+
 	// ReactDOM points to the ReactDOM library. Change it
 	// if it is not in your global namespace.
 	//
 	// See: https://www.npmjs.com/package/react-dom
 	ReactDOM = js.Global.Get("ReactDOM")
+
 	// CreateReactClass points to create-react-class module.
 	//
 	// See: https://www.npmjs.com/package/create-react-class

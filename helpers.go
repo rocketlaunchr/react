@@ -72,7 +72,7 @@ func ForwardRef(component interface{}) *js.Object {
 // embedded child component without using props.
 //
 // See: https://reactjs.org/docs/context.html#reactcreatecontext
-func CreateContext(defaultValue ...interface{}) (Provider *js.Object, Consumer *js.Object) {
+func CreateContext(defaultValue ...interface{}) (Context *js.Object, Provider *js.Object, Consumer *js.Object) {
 
 	var res *js.Object
 
@@ -82,7 +82,7 @@ func CreateContext(defaultValue ...interface{}) (Provider *js.Object, Consumer *
 		res = React.Call("createContext")
 	}
 
-	return res.Get("Provider"), res.Get("Consumer")
+	return res, res.Get("Provider"), res.Get("Consumer")
 }
 
 // CloneElement is used to clone and return a new React Element.
