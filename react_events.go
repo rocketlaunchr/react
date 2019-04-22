@@ -4,7 +4,6 @@ package react
 
 import (
 	"github.com/gopherjs/gopherjs/js"
-	"honnef.co/go/js/dom"
 )
 
 // SyntheticEvent represents a SyntheticEvent.
@@ -32,8 +31,13 @@ func (s *SyntheticEvent) Cancelable() bool {
 // CurrentTarget
 //
 // See: https://reactjs.org/docs/events.html#overview
-func (s *SyntheticEvent) CurrentTarget() dom.HTMLElement {
-	return dom.WrapHTMLElement(s.O.Get("currentTarget"))
+//
+// Example:
+//
+// import "honnef.co/go/js/dom"
+// dom.WrapHTMLElement(e.CurrentTarget())
+func (s *SyntheticEvent) CurrentTarget() *js.Object {
+	return s.O.Get("currentTarget")
 }
 
 // DefaultPrevented
@@ -60,8 +64,13 @@ func (s *SyntheticEvent) IsTrusted() bool {
 // NativeEvents
 //
 // See: https://reactjs.org/docs/events.html#overview
-func (s *SyntheticEvent) NativeEvent() dom.Event {
-	return dom.WrapEvent(s.O.Get("nativeEvent"))
+//
+// Example:
+//
+// import "honnef.co/go/js/dom"
+// dom.WrapEvent(e.NativeEvent())
+func (s *SyntheticEvent) NativeEvent() *js.Object {
+	return s.O.Get("nativeEvent")
 }
 
 // PreventDefault
@@ -94,8 +103,13 @@ func (s *SyntheticEvent) IsPropagationStopped() bool {
 // Target
 //
 // See: https://reactjs.org/docs/events.html#overview
-func (s *SyntheticEvent) Target() dom.HTMLElement {
-	return dom.WrapHTMLElement(s.O.Get("target"))
+//
+// Example:
+//
+// import "honnef.co/go/js/dom"
+// dom.WrapHTMLElement(e.Target())
+func (s *SyntheticEvent) Target() *js.Object {
+	return s.O.Get("target")
 }
 
 // TimeStamp
