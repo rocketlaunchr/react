@@ -139,8 +139,12 @@ func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, 
 	}
 
 	if static {
-		def[statics] = map[string]interface{}{
-			name: js.MakeFunc(x),
+		if _, exists := def[statics]; exists {
+			(def[statics].(map[string]interface{}))[name] = js.MakeFunc(x)
+		} else {
+			def[statics] = map[string]interface{}{
+				name: js.MakeFunc(x),
+			}
 		}
 	} else {
 		def[name] = js.MakeFunc(x)
