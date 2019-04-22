@@ -154,6 +154,8 @@ func (def ClassDef) SetMethod(name string, f func(this *js.Object, props, state 
 }
 
 // CreateClass is used to create a react component.
+//
+// See: https://reactjs.org/docs/react-without-es6.html
 func CreateClass(def ClassDef) *js.Object {
 	return CreateReactClass.Call("createReactClass", def)
 }
