@@ -12,7 +12,6 @@ var (
 	// if it is not in your global namespace.
 	//
 	// See: https://www.npmjs.com/package/react
-
 	React = js.Global.Get("React")
 
 	// ReactDOM points to the ReactDOM library. Change it
