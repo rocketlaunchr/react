@@ -14,21 +14,21 @@ type SyntheticEvent struct {
 	O *js.Object
 }
 
-// Bubbles
+// Bubbles ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Bubbles() bool {
 	return s.O.Get("bubbles").Bool()
 }
 
-// Cancelable
+// Cancelable ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Cancelable() bool {
 	return s.O.Get("cancelable").Bool()
 }
 
-// CurrentTarget
+// CurrentTarget ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 //
@@ -41,28 +41,28 @@ func (s *SyntheticEvent) CurrentTarget() *js.Object {
 	return s.O.Get("currentTarget")
 }
 
-// DefaultPrevented
+// DefaultPrevented ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) DefaultPrevented() bool {
 	return s.O.Get("defaultPrevented").Bool()
 }
 
-// EventPhase
+// EventPhase ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) EventPhase() int {
 	return s.O.Get("eventPhase").Int()
 }
 
-// IsTrusted
+// IsTrusted ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) IsTrusted() bool {
 	return s.O.Get("isTrusted").Bool()
 }
 
-// NativeEvents
+// NativeEvents ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 //
@@ -75,34 +75,34 @@ func (s *SyntheticEvent) NativeEvent() *js.Object {
 	return s.O.Get("nativeEvent")
 }
 
-// PreventDefault
+// PreventDefault ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) PreventDefault() {
 	s.O.Call("preventDefault")
 }
 
-// IsDefaultPrevented
+// IsDefaultPrevented ...
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) IsDefaultPrevented() bool {
 	return s.O.Call("isDefaultPrevented").Bool()
 }
 
-// StopPropagation
+// StopPropagation ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) StopPropagation() {
 	s.O.Call("stopPropagation")
 }
 
-// IsPropagationStopped
+// IsPropagationStopped ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) IsPropagationStopped() bool {
 	return s.O.Call("isPropagationStopped").Bool()
 }
 
-// Target
+// Target ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 //
@@ -115,14 +115,14 @@ func (s *SyntheticEvent) Target() *js.Object {
 	return s.O.Get("target")
 }
 
-// TimeStamp
+// TimeStamp ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) TimeStamp() float64 {
 	return s.O.Get("timeStamp").Float()
 }
 
-// Type
+// Type ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 func (s *SyntheticEvent) Type() string {

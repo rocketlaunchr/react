@@ -6,6 +6,7 @@ import (
 	"github.com/rocketlaunchr/react/elements"
 )
 
+// EventsComponent is a react component.
 var EventsComponent *js.Object
 
 type eventsState struct {

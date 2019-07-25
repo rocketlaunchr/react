@@ -19,6 +19,7 @@ var (
 // to more appropriate types.
 //
 
+// AProps ...
 type AProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -53,10 +54,12 @@ type AProps struct {
 	Target string `react:"target,omitempty"`
 }
 
+// A ...
 func A(props *AProps, children ...interface{}) *js.Object {
 	return react.JSX("a", props, children...)
 }
 
+// AbbrProps ...
 type AbbrProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -86,10 +89,12 @@ type AbbrProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Abbr ...
 func Abbr(props *AbbrProps, children ...interface{}) *js.Object {
 	return react.JSX("abbr", props, children...)
 }
 
+// ArticleProps ...
 type ArticleProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -119,10 +124,12 @@ type ArticleProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Article ...
 func Article(props *AbbrProps, children ...interface{}) *js.Object {
 	return react.JSX("article", props, children...)
 }
 
+// AsideProps ...
 type AsideProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -152,10 +159,12 @@ type AsideProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Aside ...
 func Aside(props *AsideProps, children ...interface{}) *js.Object {
 	return react.JSX("aside", props, children...)
 }
 
+// BProps ...
 type BProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -185,10 +194,12 @@ type BProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// B ...
 func B(props *BProps, children ...interface{}) *js.Object {
 	return react.JSX("b", props, children...)
 }
 
+// BodyProps ...
 type BodyProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -229,10 +240,12 @@ type BodyProps struct {
 	OnClick        *js.Object `react:"onClick,omitempty"`
 }
 
+// Body ...
 func Body(props *BodyProps, children ...interface{}) *js.Object {
 	return react.JSX("body", props, children...)
 }
 
+// BrProps ...
 type BrProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -262,10 +275,12 @@ type BrProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Br ...
 func Br(props *BrProps, children ...interface{}) *js.Object {
 	return react.JSX("br", props, children...)
 }
 
+// ButtonProps ...
 type ButtonProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -311,10 +326,12 @@ type ButtonProps struct {
 	WillValidate      *bool  `react:"willvalidate,omitempty"`
 }
 
+// Button ...
 func Button(props *ButtonProps, children ...interface{}) *js.Object {
 	return react.JSX("button", props, children...)
 }
 
+// CaptionProps ...
 type CaptionProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -344,10 +361,12 @@ type CaptionProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Caption ...
 func Caption(props *CaptionProps, children ...interface{}) *js.Object {
 	return react.JSX("caption", props, children...)
 }
 
+// CodeProps ...
 type CodeProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -377,10 +396,12 @@ type CodeProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Code ...
 func Code(props *CodeProps, children ...interface{}) *js.Object {
 	return react.JSX("code", props, children...)
 }
 
+// DivProps ...
 type DivProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -410,10 +431,12 @@ type DivProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Div ...
 func Div(props *DivProps, children ...interface{}) *js.Object {
 	return react.JSX("div", props, children...)
 }
 
+// EmProps ...
 type EmProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -443,10 +466,12 @@ type EmProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Em ...
 func Em(props *EmProps, children ...interface{}) *js.Object {
 	return react.JSX("em", props, children...)
 }
 
+// FooterProps ...
 type FooterProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -476,10 +501,12 @@ type FooterProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Footer ...
 func Footer(props *FooterProps, children ...interface{}) *js.Object {
 	return react.JSX("footer", props, children...)
 }
 
+// FormProps ...
 type FormProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -527,10 +554,12 @@ type FormProps struct {
 	Target        string `react:"target,omitempty"`
 }
 
+// Form ...
 func Form(props *FormProps, children ...interface{}) *js.Object {
 	return react.JSX("form", props, children...)
 }
 
+// H1Props ...
 type H1Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -560,10 +589,12 @@ type H1Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H1 ...
 func H1(props *H1Props, children ...interface{}) *js.Object {
 	return react.JSX("h1", props, children...)
 }
 
+// H2Props ...
 type H2Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -593,10 +624,12 @@ type H2Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H2 ...
 func H2(props *H2Props, children ...interface{}) *js.Object {
 	return react.JSX("h2", props, children...)
 }
 
+// H3Props ...
 type H3Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -626,10 +659,12 @@ type H3Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H3 ...
 func H3(props *H3Props, children ...interface{}) *js.Object {
 	return react.JSX("h3", props, children...)
 }
 
+// H4Props ...
 type H4Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -659,10 +694,12 @@ type H4Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H4 ...
 func H4(props *H4Props, children ...interface{}) *js.Object {
 	return react.JSX("h4", props, children...)
 }
 
+// H5Props ...
 type H5Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -692,10 +729,12 @@ type H5Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H5 ...
 func H5(props *H5Props, children ...interface{}) *js.Object {
 	return react.JSX("h5", props, children...)
 }
 
+// H6Props ...
 type H6Props struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -725,10 +764,12 @@ type H6Props struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// H6 ...
 func H6(props *H6Props, children ...interface{}) *js.Object {
 	return react.JSX("h6", props, children...)
 }
 
+// HeaderProps ...
 type HeaderProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -758,10 +799,12 @@ type HeaderProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Header ...
 func Header(props *HeaderProps, children ...interface{}) *js.Object {
 	return react.JSX("header", props, children...)
 }
 
+// HrProps ...
 type HrProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -791,10 +834,12 @@ type HrProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Hr ...
 func Hr(props *HrProps, children ...interface{}) *js.Object {
 	return react.JSX("hr", props, children...)
 }
 
+// IProps ...
 type IProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -824,10 +869,12 @@ type IProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// I ...
 func I(props *IProps, children ...interface{}) *js.Object {
 	return react.JSX("i", props, children...)
 }
 
+// IFrameProps ...
 type IFrameProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -864,10 +911,12 @@ type IFrameProps struct {
 	Seamless *bool  `react:"seamless,omitempty"`
 }
 
+// IFrame ...
 func IFrame(props *IFrameProps, children ...interface{}) *js.Object {
 	return react.JSX("iframe", props, children...)
 }
 
+// ImgProps ...
 type ImgProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -908,10 +957,12 @@ type ImgProps struct {
 	Width         string `react:"width,omitempty"`
 }
 
+// Img ...
 func Img(props *ImgProps, children ...interface{}) *js.Object {
 	return react.JSX("img", props, children...)
 }
 
+// InputProps ...
 type InputProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -978,10 +1029,12 @@ type InputProps struct {
 	WillValidate       *bool  `react:"willValidate,omitempty"`
 }
 
+// Input ...
 func Input(props *InputProps, children ...interface{}) *js.Object {
 	return react.JSX("input", props, children...)
 }
 
+// LabelProps ...
 type LabelProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1014,10 +1067,12 @@ type LabelProps struct {
 	Form string `react:"form,omitempty"`
 }
 
+// Label ...
 func Label(props *LabelProps, children ...interface{}) *js.Object {
 	return react.JSX("label", props, children...)
 }
 
+// LiProps ...
 type LiProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1047,10 +1102,12 @@ type LiProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Li ...
 func Li(props *LiProps, children ...interface{}) *js.Object {
 	return react.JSX("li", props, children...)
 }
 
+// MainProps ...
 type MainProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1080,10 +1137,12 @@ type MainProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Main ...
 func Main(props *MainProps, children ...interface{}) *js.Object {
 	return react.JSX("main", props, children...)
 }
 
+// NavProps ...
 type NavProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1113,10 +1172,12 @@ type NavProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Nav ...
 func Nav(props *NavProps, children ...interface{}) *js.Object {
 	return react.JSX("nav", props, children...)
 }
 
+// OptionProps ...
 type OptionProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1154,10 +1215,12 @@ type OptionProps struct {
 	Value           string `react:"value,omitempty"`
 }
 
+// Option ...
 func Option(props *OptionProps, children ...interface{}) *js.Object {
 	return react.JSX("option", props, children...)
 }
 
+// PProps ...
 type PProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1187,10 +1250,12 @@ type PProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// P ...
 func P(props *PProps, children ...interface{}) *js.Object {
 	return react.JSX("p", props, children...)
 }
 
+// PreProps ...
 type PreProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1220,10 +1285,12 @@ type PreProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Pre ...
 func Pre(props *PreProps, children ...interface{}) *js.Object {
 	return react.JSX("pre", props, children...)
 }
 
+// SelectProps ...
 type SelectProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1266,10 +1333,12 @@ type SelectProps struct {
 	WillValidate      *bool  `react:"willValidate,omitempty"`
 }
 
+// Select ...
 func Select(props *SelectProps, children ...interface{}) *js.Object {
 	return react.JSX("select", props, children...)
 }
 
+// SpanProps ...
 type SpanProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1299,10 +1368,12 @@ type SpanProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Span ...
 func Span(props *SpanProps, children ...interface{}) *js.Object {
 	return react.JSX("span", props, children...)
 }
 
+// SProps ...
 type SProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1332,10 +1403,12 @@ type SProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// S ...
 func S(props *SProps, children ...interface{}) *js.Object {
 	return react.JSX("s", props, children...)
 }
 
+// SupProps ...
 type SupProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1365,10 +1438,12 @@ type SupProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Sup ...
 func Sup(props *SupProps, children ...interface{}) *js.Object {
 	return react.JSX("sup", props, children...)
 }
 
+// TableProps ...
 type TableProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1398,10 +1473,12 @@ type TableProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Table ...
 func Table(props *TableProps, children ...interface{}) *js.Object {
 	return react.JSX("table", props, children...)
 }
 
+// TBodyProps ...
 type TBodyProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1431,10 +1508,12 @@ type TBodyProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// TBody ...
 func TBody(props *TBodyProps, children ...interface{}) *js.Object {
 	return react.JSX("tbody", props, children...)
 }
 
+// TdProps ...
 type TdProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1464,10 +1543,12 @@ type TdProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Td ...
 func Td(props *TdProps, children ...interface{}) *js.Object {
 	return react.JSX("td", props, children...)
 }
 
+// TextAreaProps ...
 type TextAreaProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1519,10 +1600,12 @@ type TextAreaProps struct {
 	Wrap               string `react:"wrap,omitempty"`
 }
 
+// TextArea ...
 func TextArea(props *TextAreaProps, children ...interface{}) *js.Object {
 	return react.JSX("textarea", props, children...)
 }
 
+// TFootProps ...
 type TFootProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1552,10 +1635,12 @@ type TFootProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// TFoot ...
 func TFoot(props *TFootProps, children ...interface{}) *js.Object {
 	return react.JSX("tfoot", props, children...)
 }
 
+// ThProps ...
 type ThProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1592,10 +1677,12 @@ type ThProps struct {
 	Sorted  string `react:"sorted,omitempty"`
 }
 
+// Th ...
 func Th(props *ThProps, children ...interface{}) *js.Object {
 	return react.JSX("th", props, children...)
 }
 
+// THeadProps ...
 type THeadProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1625,10 +1712,12 @@ type THeadProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// THead ...
 func THead(props *THeadProps, children ...interface{}) *js.Object {
 	return react.JSX("thead", props, children...)
 }
 
+// TrProps ...
 type TrProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1658,10 +1747,12 @@ type TrProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Tr ...
 func Tr(props *TrProps, children ...interface{}) *js.Object {
 	return react.JSX("tr", props, children...)
 }
 
+// UlProps ...
 type UlProps struct {
 	AriaSet                 react.Set   `react:"aria-,omitempty"`
 	DataSet                 react.Set   `react:"data-,omitempty"`
@@ -1691,6 +1782,7 @@ type UlProps struct {
 	OnClick  *js.Object `react:"onClick,omitempty"`
 }
 
+// Ul ...
 func Ul(props *UlProps, children ...interface{}) *js.Object {
 	return react.JSX("ul", props, children...)
 }

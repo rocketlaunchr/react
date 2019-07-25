@@ -7,8 +7,10 @@ import (
 	"github.com/rocketlaunchr/react"
 )
 
+// ContainerComponent is a react component.
 var ContainerComponent *js.Object
 
+// ContainerProps are the props for ContainerComponent.
 type ContainerProps struct {
 	Title string `react:"title"`
 }

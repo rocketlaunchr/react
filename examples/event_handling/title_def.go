@@ -6,8 +6,10 @@ import (
 	"github.com/rocketlaunchr/react/elements"
 )
 
+// TitleComponent is a react component.
 var TitleComponent *js.Object
 
+// TitleProps are the props for TitleComponent.
 type TitleProps struct {
 	Title string `react:"title"`
 }

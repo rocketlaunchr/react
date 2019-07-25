@@ -9,13 +9,16 @@ import (
 	"github.com/rocketlaunchr/react/elements"
 )
 
+// TimerComponent is a react component.
 var TimerComponent *js.Object
 
+// TimerProps are the props for TimerComponent.
 type TimerProps struct {
 	// We will pass in the time when the component was first instantiated.
 	StartTime int64 `react:"start"`
 }
 
+// TimerState is the state for TimerComponent.
 type TimerState struct {
 	// Elapsed will record how much time has passed since instantiation.
 	Elapsed int64 `react:"elapsed"`
