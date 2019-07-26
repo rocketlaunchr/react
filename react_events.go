@@ -62,7 +62,7 @@ func (s *SyntheticEvent) IsTrusted() bool {
 	return s.O.Get("isTrusted").Bool()
 }
 
-// NativeEvents ...
+// NativeEvent ...
 //
 // See: https://reactjs.org/docs/events.html#overview
 //

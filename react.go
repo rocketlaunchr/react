@@ -4,7 +4,6 @@ package react
 
 import (
 	"github.com/gopherjs/gopherjs/js"
-	"honnef.co/go/js/dom"
 )
 
 var (
@@ -26,8 +25,17 @@ var (
 	CreateReactClass = js.Global
 )
 
+// GetElementByID will return the first element with the specified id in the dom object.
+// If no dom is provided, window.document will be used.
+func GetElementByID(id string, dom ...*js.Object) *js.Object {
+	if len(dom) > 0 {
+		return dom[0].Call("getElementById", id)
+	}
+	return js.Global.Get("document").Call("getElementById", id)
+}
+
 // Render will render component to the specified target dom element.
-func Render(element *js.Object, domTarget dom.Element, callback ...func()) *js.Object {
+func Render(element *js.Object, domTarget *js.Object, callback ...func()) *js.Object {
 	if len(callback) > 0 && callback[0] != nil {
 		return ReactDOM.Call("render", element, domTarget, callback[0])
 	}
