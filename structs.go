@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/gopherjs/gopherjs/js"
-	"github.com/mitchellh/mapstructure"
+	"github.com/rocketlaunchr/react/forks/mapstructure"
 )
 
 // SToMap will convert a struct or pass-through a map.
@@ -170,10 +170,10 @@ func isStruct(s interface{}) bool {
 	return v.Kind() == reflect.Struct
 }
 
-// HydrateStruct will hydrate a struct with values from a map.
+// UnmarshalStruct will unmarshal a struct with values from a map.
 // strct must be a pointer to a struct. Use struct tag "react" for linking
 // map keys to the struct's fields.
-func HydrateStruct(mp interface{}, strct interface{}) error {
+func UnmarshalStruct(mp map[string]interface{}, strct interface{}) error {
 
 	decoder, err := mapstructure.NewDecoder(&mapstructure.DecoderConfig{
 		ZeroFields: true,
@@ -187,16 +187,32 @@ func HydrateStruct(mp interface{}, strct interface{}) error {
 	return decoder.Decode(mp)
 }
 
+// UnmarshalProps will unmarshal a given struct with values from
+// the component's prop. strct must be a pointer to a struct.
+func UnmarshalProps(this *js.Object, strct interface{}) error {
+	props := this.Get("props").Interface().(map[string]interface{})
+	return UnmarshalStruct(props, strct)
+}
+
+// UnmarshalState will unmarshal a given struct with values from
+// the component's state. strct must be a pointer to a struct.
+func UnmarshalState(this *js.Object, strct interface{}) error {
+	state := this.Get("state").Interface().(map[string]interface{})
+	return UnmarshalStruct(state, strct)
+}
+
 // HydrateProps will hydrate a given struct with values from
 // the component's prop. strct must be a pointer to a struct.
+//
+// Deprecated: Use UnmarshalProps instead.
 func HydrateProps(this *js.Object, strct interface{}) error {
-	props := this.Get("props").Interface()
-	return HydrateStruct(props, strct)
+	return UnmarshalProps(this, strct)
 }
 
 // HydrateState will hydrate a given struct with values from
 // the component's state. strct must be a pointer to a struct.
+//
+// Deprecated: Use UnmarshalState instead.
 func HydrateState(this *js.Object, strct interface{}) error {
-	state := this.Get("state").Interface()
-	return HydrateStruct(state, strct)
+	return UnmarshalState(this, strct)
 }
