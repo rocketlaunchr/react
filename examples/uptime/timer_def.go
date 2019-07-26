@@ -32,7 +32,7 @@ func init() {
 
 		// Using props in here is considered bad practice. It is only for example purposes.
 		var tProps TimerProps
-		react.HydrateProps(this, &tProps)
+		react.UnmarshalProps(this, &tProps)
 
 		return TimerState{
 			Elapsed: time.Now().Unix() - tProps.StartTime,
@@ -47,7 +47,7 @@ func init() {
 	timerDef.SetMethod("tick", func(this *js.Object, props, state react.Map, setState react.SetState, arguments []*js.Object) interface{} {
 
 		var tProps TimerProps
-		react.HydrateProps(this, &tProps)
+		react.UnmarshalProps(this, &tProps)
 
 		elapsed := time.Now().Unix() - tProps.StartTime
 
@@ -67,7 +67,7 @@ func init() {
 	timerDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
 		var tState TimerState
-		react.HydrateState(this, &tState)
+		react.UnmarshalState(this, &tState)
 
 		text := "Uptime counter:" + strconv.Itoa(int(tState.Elapsed))
 

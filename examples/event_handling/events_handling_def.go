@@ -48,7 +48,7 @@ func init() {
 		return func(this *js.Object, e *react.SyntheticEvent, props, state react.Map, setState react.SetState) {
 
 			var eState eventsState
-			react.HydrateState(this, &eState)
+			react.UnmarshalState(this, &eState)
 
 			// Update counter
 			setState(func(props, state react.Map) interface{} {

@@ -3,13 +3,10 @@ package main
 import (
 	"github.com/gopherjs/gopherjs/js"
 	"github.com/rocketlaunchr/react"
-	"honnef.co/go/js/dom"
 )
 
-var document = dom.GetWindow().Document()
-
 func main() {
-	domTarget := document.GetElementByID("app")
+	domTarget := react.GetElementByID("app")
 
 	// An example using Functional Components
 	// See: https://reactjs.org/docs/components-and-props.html

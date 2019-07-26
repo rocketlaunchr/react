@@ -21,7 +21,7 @@ func init() {
 	titleDef.Render(func(this *js.Object, props, state react.Map) interface{} {
 
 		var tProps TitleProps
-		react.HydrateProps(this, &tProps)
+		react.UnmarshalProps(this, &tProps)
 
 		title := tProps.Title
 
