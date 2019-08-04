@@ -2,10 +2,31 @@ package mapstructure
 
 import (
 	"errors"
-	"github.com/cathalgarvey/fmtless"
 	"sort"
 	"strings"
+
+	"github.com/rocketlaunchr/react/forks/fmtless"
 )
+
+func sprintf(fmts string, args ...interface{}) (rStr string) {
+	defer func() {
+		if r := recover(); r != nil {
+			// rStr = r.(string)
+			println("fmtless error: " + r.(string))
+		}
+	}()
+	return fmt.Sprintf(fmts, args...)
+}
+
+func errorf(format string, a ...interface{}) (rErr error) {
+	defer func() {
+		if r := recover(); r != nil {
+			println("fmtless error: " + r.(string))
+			rErr = errors.New(r.(string))
+		}
+	}()
+	return fmt.Errorf(format, a...)
+}
 
 // Error implements the error interface and can represents multiple
 // errors that occur in the course of a single decode.
@@ -16,11 +37,11 @@ type Error struct {
 func (e *Error) Error() string {
 	points := make([]string, len(e.Errors))
 	for i, err := range e.Errors {
-		points[i] = fmt.Sprintf("* %s", err)
+		points[i] = sprintf("* %s", err)
 	}
 
 	sort.Strings(points)
-	return fmt.Sprintf(
+	return sprintf(
 		"%d error(s) decoding:\n\n%s",
 		len(e.Errors), strings.Join(points, "\n"))
 }
