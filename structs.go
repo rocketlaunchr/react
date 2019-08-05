@@ -224,7 +224,7 @@ func HydrateState(this *js.Object, strct interface{}) error {
 // for a tutorial with an example.
 func JSONUnmarshal(json string) (*js.Object, error) {
 
-	obj, err := JSFn("JSON", "parse", json)
+	obj, err := JSFn("JSON.parse", json)
 	if err != nil {
 		return nil, err
 	}

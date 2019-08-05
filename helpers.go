@@ -3,6 +3,8 @@
 package react
 
 import (
+	"strings"
+
 	"github.com/gopherjs/gopherjs/js"
 )
 
@@ -37,10 +39,13 @@ func JSX(component interface{}, props interface{}, children ...interface{}) *js.
 //
 // Example:
 //
-//  JSFn(nil, "alert", "Hello World!") // alert('Hello World!')
-//  JSFn("JSON", "parse", `{"name":"John"}`) // JSON.parse('{"name":"John"}')
+//  // alert('Hello World!')
+//  JSFn("alert", "Hello World!")
 //
-func JSFn(obj interface{}, funcName string, args ...interface{}) (_ *js.Object, rErr error) {
+//  // JSON.parse('{"name":"John"}')
+//  JSFn("JSON.parse", `{"name":"John"}`)
+//
+func JSFn(funcName string, args ...interface{}) (_ *js.Object, rErr error) {
 	defer func() {
 		if e := recover(); e != nil {
 			err, ok := e.(*js.Error)
@@ -51,15 +56,18 @@ func JSFn(obj interface{}, funcName string, args ...interface{}) (_ *js.Object, 
 		}
 	}()
 
-	switch v := obj.(type) {
-	case nil:
-		return js.Global.Call(funcName, args...), nil
-	case string:
-		return js.Global.Get(v).Call(funcName, args...), nil
-	default:
-		_ = obj.(string) // deliberately panic
+	out := js.Global
+
+	splits := strings.Split(funcName, ".")
+	for idx, split := range splits {
+		if idx == len(splits)-1 {
+			out = out.Call(split, args...)
+		} else {
+			out = out.Get(split)
+		}
 	}
-	return nil, nil
+
+	return out, nil
 }
 
 // CreateRef will create a Ref.
