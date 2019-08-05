@@ -3,7 +3,15 @@ Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.s
 
 Facebook's React is one of the most dominant libraries for front-end development around. Google's Go programming language is one of the most elegantly crafted languages for server development. Why not combine the two?
 
-This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time. 
+This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time.
+
+This package is best suited for making Desktop applications using these technologies:
+* [webview](https://github.com/zserge/webview)
+* [lorca](https://github.com/zserge/lorca)
+* [go-astilectron](https://github.com/asticode/go-astilectron)
+* [gotron](https://github.com/Equanox/gotron)
+* **[electron.js](https://electronjs.org/)**
+
 
 The package is **production ready**. An optional (but highly convenient) `elements` sub-package is also included.
 

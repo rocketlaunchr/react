@@ -3,6 +3,7 @@
 package react
 
 import (
+	"errors"
 	"reflect"
 	"strings"
 
@@ -215,4 +216,22 @@ func HydrateProps(this *js.Object, strct interface{}) error {
 // Deprecated: Use UnmarshalState instead.
 func HydrateState(this *js.Object, strct interface{}) error {
 	return UnmarshalState(this, strct)
+}
+
+// JSONUnmarshal provides a simple way to unmarshal json encoded strings to structs.
+//
+// See: https://github.com/gopherjs/gopherjs/wiki/Using-native-JSON-parsing-to-realize-a-slim-JSON-decoder
+// for a tutorial with a example.
+func JSONUnmarshal(json string) (*js.Object, error) {
+
+	obj, err := JSFn("JSON", "parse", json)
+	if err != nil {
+		return nil, err
+	}
+
+	if obj == nil {
+		return nil, errors.New("JSONUnmarshal: something went wrong.")
+	}
+
+	return obj, nil
 }

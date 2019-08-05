@@ -32,10 +32,34 @@ func JSX(component interface{}, props interface{}, children ...interface{}) *js.
 	return React.Call("createElement", args...)
 }
 
-// JSFn is a convenience function used to call javascript functions that are
-// part of the standard library.
-func JSFn(name string, args ...interface{}) *js.Object {
-	return js.Global.Call(name, args...)
+// JSFn is a convenience function used to call javascript native functions.
+// If the native function throws an exception, then a *js.Error is returned.
+//
+// Example:
+//
+//  JSFn(nil, "alert", "Hello World!") // alert('Hello World!')
+//  JSFn("JSON", "parse", `{"name":"John"}`) // JSON.parse('{"name":"John"}')
+//
+func JSFn(obj interface{}, funcName string, args ...interface{}) (_ *js.Object, rErr error) {
+	defer func() {
+		if e := recover(); e != nil {
+			err, ok := e.(*js.Error)
+			if !ok {
+				panic(e)
+			}
+			rErr = err
+		}
+	}()
+
+	switch v := obj.(type) {
+	case nil:
+		return js.Global.Call(funcName, args...), nil
+	case string:
+		return js.Global.Get(v).Call(funcName, args...), nil
+	default:
+		_ = obj.(string) // deliberately panic
+	}
+	return nil, nil
 }
 
 // CreateRef will create a Ref.
