@@ -3,8 +3,6 @@
 package react
 
 import (
-	"strings"
-
 	"github.com/gopherjs/gopherjs/js"
 )
 
@@ -58,9 +56,10 @@ func JSFn(funcName string, args ...interface{}) (_ *js.Object, rErr error) {
 
 	out := js.Global
 
-	splits := strings.Split(funcName, ".")
-	for idx, split := range splits {
-		if idx == len(splits)-1 {
+	splits := js.Global.Get("String").Invoke(funcName).Call("split", ".")
+	for idx := 0; idx < splits.Length(); idx++ {
+		split := splits.Index(idx).String()
+		if idx == splits.Length()-1 {
 			out = out.Call(split, args...)
 		} else {
 			out = out.Get(split)
