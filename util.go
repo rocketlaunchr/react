@@ -1,10 +1,43 @@
-// Copyright 2018 PJ Engineering and Business Solutions Pty. Ltd. All rights reserved.
+// Copyright 2018-19 PJ Engineering and Business Solutions Pty. Ltd. All rights reserved.
 
 package react
 
 import (
 	"strings"
 )
+
+// M is shorthand for map[string]interface{}.
+//
+// Example:
+//
+//  react.M("className", "preview", "escapeHtml", false)
+//  js.M{"className": "preview", "escapeHtml": false}
+//
+//  // Instead of
+//  map[string]interface{}{"className": "preview", "escapeHtml": false}
+//
+// Deprecated: Use js.M instead (for type safety, linting and formatting).
+func M(kvs ...interface{}) map[string]interface{} {
+
+	out := map[string]interface{}{}
+
+	if len(kvs)%2 != 0 {
+		panic("react.M must contain an even number of arguments")
+	}
+
+	for idx := range kvs {
+		if idx%2 == 0 {
+			// even number
+			continue
+		} else {
+			// odd number
+			key := kvs[idx-1].(string)
+			out[key] = kvs[idx]
+		}
+	}
+
+	return out
+}
 
 // Set is used for conveniently dealing with
 // data-* and aria-* attributes.

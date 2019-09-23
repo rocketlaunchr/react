@@ -31,6 +31,8 @@ func SToMap(s interface{}) map[string]interface{} {
 	}
 
 	switch x := s.(type) {
+	case js.M:
+		return map[string]interface{}(x)
 	case map[string]interface{}:
 		return x
 	default:
