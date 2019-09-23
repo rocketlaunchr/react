@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	// TODO: add type checking props
+	_propTypes      = "propTypes"
 	getDefaultProps = "getDefaultProps"
 
 	// Mounting
@@ -30,10 +30,19 @@ const (
 )
 
 // GetDefaultProps sets the getDefaultProps method.
+//
+// See: https://reactjs.org/docs/react-without-es6.html#declaring-default-props
 func (def ClassDef) GetDefaultProps(f func(this *js.Object) interface{}) {
 	def.SetMethod(getDefaultProps, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 		return SToMap(f(this))
 	})
+}
+
+// SetPropTypes is used to typecheck and validate props.
+//
+// See: https://reactjs.org/docs/typechecking-with-proptypes.html
+func (def ClassDef) SetPropTypes(propTypes interface{}) {
+	def[_propTypes] = SToMap(propTypes)
 }
 
 // GetInitialState sets the getInitialState method.
