@@ -18,6 +18,24 @@ func Fragment(key *string, children ...interface{}) *js.Object {
 	return JSX(React.Get("Fragment"), props, children...)
 }
 
+// OnRenderCallback is the callback function signature of the onRender argument to Profiler function.
+type OnRenderCallback func(id string, phase string, actualDuration, baseDuration float64, startTime, commitTime float64, interactions *js.Object)
+
+// Profiler is used to find performance bottlenecks in your application.
+//
+// See: https://reactjs.org/docs/profiler.html
+func Profiler(id string, onRender OnRenderCallback, children ...interface{}) *js.Object {
+
+	props := map[string]interface{}{
+		"id": id,
+	}
+	if onRender != nil {
+		props["onRender"] = onRender
+	}
+
+	return JSX(React.Get("Profiler"), props, children...)
+}
+
 // JSX is used to create an Element.
 func JSX(component interface{}, props interface{}, children ...interface{}) *js.Object {
 
