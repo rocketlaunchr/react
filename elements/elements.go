@@ -1,3 +1,5 @@
+// Copyright 2018-19 PJ Engineering and Business Solutions Pty. Ltd. All rights reserved.
+
 package elements
 
 import (
@@ -12,12 +14,6 @@ var (
 	// FALSE is used when a pointer to a bool is required.
 	FALSE = false
 )
-
-//
-// PULL-REQUESTS WILL BE WARMLY WELCOMED
-// Some of the field types are likely to change
-// to more appropriate types.
-//
 
 // AProps ...
 type AProps struct {

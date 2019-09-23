@@ -1,3 +1,5 @@
+// Copyright 2018-19 PJ Engineering and Business Solutions Pty. Ltd. All rights reserved.
+
 package elements
 
 // Styles represent CSS3 attributes.
