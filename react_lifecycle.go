@@ -25,7 +25,8 @@ const (
 	componentWillUnmount = "componentWillUnmount"
 
 	// Error-handling
-	componentDidCatch = "componentDidCatch"
+	componentDidCatch        = "componentDidCatch"
+	getDerivedStateFromError = "getDerivedStateFromError"
 )
 
 // GetDefaultProps sets the getDefaultProps method.
@@ -46,7 +47,7 @@ func (def ClassDef) GetInitialState(f func(this *js.Object, props Map) interface
 // GetDerivedStateFromProps sets the getDerivedStateFromProps class method.
 //
 // See: https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
-func (def ClassDef) GetDerivedStateFromProps(f func(nextProps, prevState Map) interface{}) {
+func (def ClassDef) GetDerivedStateFromProps(f func(props, state Map) interface{}) {
 
 	def.setMethod(true, getDerivedStateFromProps, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
 
@@ -154,5 +155,15 @@ func (def ClassDef) ComponentDidCatch(f func(this *js.Object, err, info *js.Obje
 		info := arguments[1]
 		f(this, err, info, props, state, setState)
 		return nil
+	})
+}
+
+// GetDerivedStateFromError sets the getDerivedStateFromError class method.
+//
+// See: https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror
+func (def ClassDef) GetDerivedStateFromError(f func(err *js.Object) interface{}) {
+	def.setMethod(true, getDerivedStateFromError, func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{} {
+		err := arguments[0]
+		return SToMap(f(err))
 	})
 }
