@@ -16,7 +16,7 @@ The package is **production ready**. An optional (but highly convenient) `elemen
 
 See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4f01df9).
 
-⭐ **The project to show your appreciation.**
+⭐ **the project to show your appreciation.**
 
 ## Dependencies
 
@@ -48,6 +48,12 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 -   How to handle events (and pass extra arguments)
 -   How to create a Ref and interact with dom object directly
 
+### [Desktop Application](https://github.com/rocketlaunchr/desktop-application)
+
+-   100% written in Go
+-   Go to Javascript via [gopherjs](https://github.com/gopherjs/gopherjs)
+-   [Electron.js](https://electronjs.org/) based
+
 ## Performance Tips
 
 -   Use `-m` command line flag to instruct gopher.js to minify code. Then bundle+minify further with [Rollup.js](https://rollupjs.org) xor [Webpack/UglifyJS](https://github.com/gopherjs/gopherjs/issues/136). A Webpack tutorial can be [found here](https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01).
@@ -69,7 +75,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 The license is a modified MIT license. Refer to `LICENSE` file for more details.
 
-**© 2018 PJ Engineering and Business Solutions Pty. Ltd.**
+**© 2018-19 PJ Engineering and Business Solutions Pty. Ltd.**
 
 ### Final Notes
 
