@@ -51,6 +51,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 ### [Desktop Application](https://github.com/rocketlaunchr/desktop-application)
 
 -   100% written in Go
+-   Cross-platform (Mac,Win,Linux)
 -   Go to Javascript via [gopherjs](https://github.com/gopherjs/gopherjs)
 -   [Electron.js](https://electronjs.org/) based
 
