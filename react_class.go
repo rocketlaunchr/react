@@ -49,7 +49,6 @@ type ClassDef map[string]interface{}
 //  appDef := react.NewClassDef("App")
 //
 // See: https://reactjs.org/docs/react-api.html#reactpurecomponent
-//
 // See: https://reactjs.org/docs/react-component.html
 //
 func NewClassDef(displayName string, mixins ...interface{}) ClassDef {
