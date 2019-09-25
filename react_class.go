@@ -43,7 +43,7 @@ type ClassDef map[string]interface{}
 // Example:
 //
 //  // Create PureComponent
-//  pureDef := react.NewClassDef("Pure", react.PureRenderMixin)
+//  pureDef := react.NewClassDef("Pure", react.PureComponentMixin)
 //
 //  // Create Component
 //  appDef := react.NewClassDef("App")
@@ -184,5 +184,5 @@ func (def ClassDef) SetMethod(name string, f func(this *js.Object, props, state 
 //
 // See: https://reactjs.org/docs/react-without-es6.html
 func CreateClass(def ClassDef) *js.Object {
-	return CreateReactClass.Call("createReactClass", def)
+	return CreateReactClass.Invoke(def)
 }
