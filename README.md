@@ -23,6 +23,7 @@ See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4
 -   [React 16.5.2](https://www.npmjs.com/package/react) (it will probably work with lower)
 -   [Gopherjs](https://github.com/gopherjs/gopherjs)
 -   [create-react-class](https://www.npmjs.com/package/create-react-class)
+-   [react-addons-pure-render-mixin](https://www.npmjs.com/package/react-addons-pure-render-mixin) (optional: For creating a `PureComponent`)
 
 ## Installation
 
@@ -51,13 +52,14 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 ### [Desktop Application](https://github.com/rocketlaunchr/desktop-application)
 
 -   100% written in Go
--   Cross-platform (Mac,Win,Linux)
+-   Cross-platform (MacOS, Win, Linux)
 -   Go to Javascript via [gopherjs](https://github.com/gopherjs/gopherjs)
 -   [Electron.js](https://electronjs.org/) based
+-   How to bundle javascript dependencies using [rollup.js](https://rollupjs.org)
 
 ## Performance Tips
 
--   Use `-m` command line flag to instruct gopher.js to minify code. Then bundle+minify further with [Rollup.js](https://rollupjs.org) xor [Webpack/UglifyJS](https://github.com/gopherjs/gopherjs/issues/136). A Webpack tutorial can be [found here](https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01).
+-   Use `-m` command line flag to instruct gopher.js to minify code. Then bundle+minify further with [rollup.js](https://rollupjs.org) xor [Webpack/UglifyJS](https://github.com/gopherjs/gopherjs/issues/136). A Webpack tutorial can be [found here](https://medium.com/ag-grid/webpack-tutorial-understanding-how-it-works-f73dfa164f01).
 -   Apply [gzip compression](https://en.wikipedia.org/wiki/HTTP_compression)
 -   Use int instead of (u)int8/16/32/64
 -   Use float64 instead of float32

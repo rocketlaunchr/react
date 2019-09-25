@@ -39,19 +39,39 @@ type ClassDef map[string]interface{}
 // NewClassDef will create an empty class definition which can immediately be used
 // to create a React component. displayName is the text that is shown in Chrome's
 // React Developer Tools.
-func NewClassDef(displayName string) ClassDef {
+//
+// Example:
+//
+//  // Create PureComponent
+//  pureDef := react.NewClassDef("Pure", react.PureRenderMixin)
+//
+//  // Create Component
+//  appDef := react.NewClassDef("App")
+//
+// See: https://reactjs.org/docs/react-api.html#reactpurecomponent
+//
+// See: https://reactjs.org/docs/react-component.html
+//
+func NewClassDef(displayName string, mixins ...interface{}) ClassDef {
 	def := ClassDef{
 		render: js.MakeFunc(func(this *js.Object, arguments []*js.Object) interface{} {
 			return nil
 		}),
 	}
 	def["displayName"] = displayName
+
+	// Mixin support
+	if len(mixins) > 0 {
+		def["mixins"] = mixins
+	}
+
 	return def
 }
 
 func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, props, state Map, setState SetState, arguments []*js.Object) interface{}) {
 
 	const statics = "statics"
+	const mixins = "mixins"
 
 	if f == nil {
 		// Clear method
@@ -72,6 +92,10 @@ func (def ClassDef) setMethod(static bool, name string, f func(this *js.Object, 
 
 	if !static && name == statics {
 		panic("can't have function name called 'statics'")
+	}
+
+	if name == mixins {
+		panic("can't have function name called 'mixins'")
 	}
 
 	x := func(this *js.Object, arguments []*js.Object) interface{} {

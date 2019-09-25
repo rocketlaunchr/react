@@ -23,6 +23,12 @@ var (
 	//
 	// See: https://www.npmjs.com/package/create-react-class
 	CreateReactClass = js.Global
+
+	// PureRenderMixin points to react-addons-pure-render-mixin module.
+	// It is optional, but required if you want to create a PureComponent.
+	//
+	// See: https://www.npmjs.com/package/react-addons-pure-render-mixin
+	PureRenderMixin = js.Global
 )
 
 // GetElementByID will return the first element with the specified id in the dom object.

@@ -171,6 +171,10 @@ func (def ClassDef) SetMultiArgEventHandler(name string, f func(this *js.Object,
 		panic("can't have function name called 'statics'")
 	}
 
+	if name == "mixins" {
+		panic("can't have function name called 'mixins'")
+	}
+
 	x := func(this *js.Object, arguments []*js.Object) interface{} {
 
 		props := func(key string) *js.Object {
