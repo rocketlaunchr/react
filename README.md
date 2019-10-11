@@ -21,7 +21,7 @@ See [Tutorial here](https://medium.com/@rocketlaunchr.cloud/go-with-react-de5ee4
 ## Dependencies
 
 -   [React 16.5.2](https://www.npmjs.com/package/react) (it will probably work with lower)
--   [Gopherjs](https://github.com/gopherjs/gopherjs)
+-   [Gopherjs](https://github.com/gopherjs/gopherjs) (Go to Javascript transpiler)
 -   [create-react-class](https://www.npmjs.com/package/create-react-class)
 -   [react-addons-pure-render-mixin](https://www.npmjs.com/package/react-addons-pure-render-mixin) (optional: For creating a `PureComponent`)
 
@@ -52,8 +52,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 ### [Desktop Application](https://github.com/rocketlaunchr/desktop-application)
 
 -   100% written in Go
--   Cross-platform (MacOS, Win, Linux)
--   Go to Javascript via [gopherjs](https://github.com/gopherjs/gopherjs)
+-   Cross-platform (macOS, Win, Linux)
 -   [Electron.js](https://electronjs.org/) based
 -   How to bundle javascript dependencies using [rollup.js](https://rollupjs.org)
 
@@ -67,6 +66,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 -   Use **react.JSFn()** and use native javascript functions as much as possible.
 -   https://github.com/gopherjs/gopherjs/wiki/JavaScript-Tips-and-Gotchas
 -   See if [jsgo](https://github.com/dave/jsgo) is appropriate for your web-based project.
+-   To reduce file size, copy only what's required from `elements` subpackage.
 
 ## Future Work
 
