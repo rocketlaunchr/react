@@ -63,7 +63,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 -   Use int instead of (u)int8/16/32/64
 -   Use float64 instead of float32
 -   Avoid importing `fmt` at all costs (including indirectly).
--   Avoid importing `net/http` for http requests (including indirectly). Use [gopherjs-xhr](github.com/rocketlaunchr/gopherjs-xhr) instead.
+-   Avoid importing `net/http` for http requests (including indirectly). Use [gopherjs-xhr](https://github.com/rocketlaunchr/gopherjs-xhr) instead.
 -   Avoid importing `honnef.co/go/js/dom` if possible.
 -   Use **react.JSFn()** and use native javascript functions as much as possible.
 -   https://github.com/gopherjs/gopherjs/wiki/JavaScript-Tips-and-Gotchas
