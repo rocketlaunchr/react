@@ -130,10 +130,22 @@ func getSpec(window []byte) (string, bool) {
 		speclen = 2
 	}
 	switch window[speclen-1] {
-	case 'v', 's', 'q', 'd', 'b', 'f', 'F', 'g', 'G', 'e', 'E', 'o', 'x', 'X', 'U':
+	case 'v', 's', 'q', 'd', 'b', 'f', 'F', 'g', 'G', 'e', 't', 'E', 'o', 'x', 'X', 'U':
 		return string(window[:speclen]), true
 	default:
 		return "", false
+	}
+}
+
+func fmtBool(spec string, i bool) string {
+	switch spec {
+	case "%s", "%t", "%v", "%#v":
+		if i == true {
+			return "true"
+		}
+		return "false"
+	default:
+		panic("Unsupported spec for bool: " + spec)
 	}
 }
 
@@ -145,6 +157,8 @@ func fmtI(spec string, i interface{}) string {
 		return fmtString(spec, i.(error).Error())
 	case string:
 		return fmtString(spec, i.(string))
+	case bool:
+		return fmtBool(spec, i.(bool))
 	case []byte:
 		return fmtBytes(spec, i.([]byte))
 	case rune:
