@@ -1,8 +1,8 @@
-# Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.svg)](http://godoc.org/github.com/rocketlaunchr/react) [![Go Report Card](https://goreportcard.com/badge/github.com/rocketlaunchr/react)](https://goreportcard.com/report/github.com/rocketlaunchr/react)
-
 <p align="center">
-<img src="https://github.com/rocketlaunchr/react/raw/master/logo-black.png" alt="react" />
+<img src="https://github.com/rocketlaunchr/react/raw/master/logo-white.png" alt="react" />
 </p>
+
+# Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.svg)](http://godoc.org/github.com/rocketlaunchr/react) [![Go Report Card](https://goreportcard.com/badge/github.com/rocketlaunchr/react)](https://goreportcard.com/report/github.com/rocketlaunchr/react)
 
 Facebook's React is one of the most dominant libraries for front-end development around. Google's Go programming language is one of the most elegantly crafted languages for server development. Why not combine the two?
 
