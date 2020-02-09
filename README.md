@@ -1,5 +1,9 @@
 # Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.svg)](http://godoc.org/github.com/rocketlaunchr/react) [![Go Report Card](https://goreportcard.com/badge/github.com/rocketlaunchr/react)](https://goreportcard.com/report/github.com/rocketlaunchr/react)
 
+<p align="center">
+<img src="https://github.com/rocketlaunchr/react/raw/master/logo-black.png" alt="react" />
+</p>
+
 Facebook's React is one of the most dominant libraries for front-end development around. Google's Go programming language is one of the most elegantly crafted languages for server development. Why not combine the two?
 
 This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time.
@@ -64,16 +68,17 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 -   Use float64 instead of float32
 -   Avoid importing `fmt` at all costs (including indirectly). Use [fmtless](https://github.com/rocketlaunchr/react/forks/fmtless) instead.
 -   Avoid importing `net/http` for http requests (including indirectly). Use [gopherjs-xhr](https://github.com/rocketlaunchr/gopherjs-xhr) instead.
+-   Until GopherJS supports Go1.13+, avoid using the standard libraries `context` package because it uses `fmt`. Instead use [`context`](https://github.com/rocketlaunchr/react/forks/context) from `forks` sub-package.
 -   Avoid importing `honnef.co/go/js/dom` if possible.
 -   Use **react.JSFn()** and use native javascript functions as much as possible.
 -   https://github.com/gopherjs/gopherjs/wiki/JavaScript-Tips-and-Gotchas
 -   See if [jsgo](https://github.com/dave/jsgo) is appropriate for your web-based project.
--   To reduce file size, copy only what's required from `elements` subpackage.
+-   To reduce file size, copy only what's required from `elements` sub-package.
 -   For json unmarshaling, try [slim-decoder](https://github.com/gopherjs/gopherjs/wiki/Using-native-JSON-parsing-to-realize-a-slim-JSON-decoder) or use [json](https://github.com/rocketlaunchr/react/forks/encoding/json)
 
 ## Future Work
 
--   WebAssembly version
+-   WebAssembly version ![Help Required](https://img.shields.io/badge/help-required-blueviolet)
 
 #
 
