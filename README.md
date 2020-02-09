@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/rocketlaunchr/react/raw/master/logo-white.png" alt="react" />
+<img src="https://github.com/rocketlaunchr/react/raw/master/logo.png" alt="react" />
 </p>
 
 # Go with React [![GoDoc](http://godoc.org/github.com/rocketlaunchr/react?status.svg)](http://godoc.org/github.com/rocketlaunchr/react) [![Go Report Card](https://goreportcard.com/badge/github.com/rocketlaunchr/react)](https://goreportcard.com/report/github.com/rocketlaunchr/react)
