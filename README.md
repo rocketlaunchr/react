@@ -81,7 +81,7 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 
 The license is a modified MIT license. Refer to `LICENSE` file for more details.
 
-**© 2018-19 PJ Engineering and Business Solutions Pty. Ltd.**
+**© 2018-20 PJ Engineering and Business Solutions Pty. Ltd.**
 
 ### Final Notes
 
