@@ -8,7 +8,7 @@ Facebook's React is one of the most dominant libraries for front-end development
 
 This package is an extremely thin wrapper over the native react.js API. The objective was to make it light-weight, developer-friendly and intuitive. You shouldn’t have to scour the documentation to get going — a few peeks should be adequate. If you know your way around the React API and you know a bit of Go, then you should be able to make prototypes and production-worthy applications in no time.
 
-This package is best suited for making Desktop applications using these technologies:
+This package is best suited for making cross-platform Desktop applications using these technologies:
 
 -   [webview](https://github.com/zserge/webview)
 -   [lorca](https://github.com/zserge/lorca)
@@ -79,6 +79,16 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 ## Future Work
 
 -   WebAssembly version ![Help Required](https://img.shields.io/badge/help-required-blueviolet)
+
+## Other useful packages
+
+- [dataframe-go](https://github.com/rocketlaunchr/dataframe-go) - Statistics and data manipulation
+- [dbq](https://github.com/rocketlaunchr/dbq) - Zero boilerplate database operations for Go
+- [electron-alert](https://github.com/rocketlaunchr/electron-alert) - SweetAlert2 for Electron Applications
+- [igo](https://github.com/rocketlaunchr/igo) - A Go transpiler with cool new syntax such as fordefer (defer for for-loops)
+- [mysql-go](https://github.com/rocketlaunchr/mysql-go) - Properly cancel slow MySQL queries
+- [react](https://github.com/rocketlaunchr/react) - Build front end applications using Go
+- [remember-go](https://github.com/rocketlaunchr/remember-go) - Cache slow database queries
 
 #
 
