@@ -87,7 +87,6 @@ The examples can be [found here](https://github.com/rocketlaunchr/react/tree/mas
 - [electron-alert](https://github.com/rocketlaunchr/electron-alert) - SweetAlert2 for Electron Applications
 - [igo](https://github.com/rocketlaunchr/igo) - A Go transpiler with cool new syntax such as fordefer (defer for for-loops)
 - [mysql-go](https://github.com/rocketlaunchr/mysql-go) - Properly cancel slow MySQL queries
-- [react](https://github.com/rocketlaunchr/react) - Build front end applications using Go
 - [remember-go](https://github.com/rocketlaunchr/remember-go) - Cache slow database queries
 
 #
