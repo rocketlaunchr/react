@@ -44,10 +44,12 @@ func GetElementByID(id string, dom ...*js.Object) *js.Object {
 	return js.Global.Get("document").Call("getElementById", id)
 }
 
-// Render will render component to the specified target dom element.
-func Render(element *js.Object, domTarget *js.Object, callback ...func()) *js.Object {
-	if len(callback) > 0 && callback[0] != nil {
-		return ReactDOM.Call("render", element, domTarget, callback[0])
-	}
-	return ReactDOM.Call("render", element, domTarget)
+// CreateRoot will create a root from the specified target dom element.
+func CreateRoot(domTarget *js.Object) *js.Object {
+	return ReactDOM.Call("createRoot", domTarget)
+}
+
+// Render will render component to the specified root.
+func Render(element *js.Object, domTarget *js.Object) *js.Object {
+	return domTarget.Call("render", element)
 }
