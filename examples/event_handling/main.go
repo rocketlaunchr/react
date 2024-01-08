@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	domTarget := react.GetElementByID("app")
+	domTarget := react.CreateRoot(react.GetElementByID("app"))
 
 	// An example using Functional Components
 	// See: https://reactjs.org/docs/components-and-props.html

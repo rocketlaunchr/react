@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	domTarget := react.GetElementByID("app")
+	domTarget := react.CreateRoot(react.GetElementByID("app"))
 
 	title := "UPTIME TIMER"
 
